@@ -31,3 +31,9 @@ export default {
     }
   },
 }
+
+// TinyVue icon 图标库
+import * as Icons from '@ant-design/icons-vue'
+for (const i in Icons) {
+  app.component(i, Icons[i as keyof typeof Icons])
+}

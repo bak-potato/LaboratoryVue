@@ -22,15 +22,17 @@ import tp2 from '@/assets/pura-x-2.jpg'
 :deep(.slick-track) {
   height: auto;
 
-  >::before {
-    content: '';
-    position: absolute;
-    display: block;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+  :deep(.slick-active) {
+    ::before {
+      content: '';
+      position: absolute;
+      display: block;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
+    }
   }
 }
 </style>
