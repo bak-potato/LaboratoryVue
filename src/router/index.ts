@@ -55,6 +55,11 @@ const router = createRouter({
           name: 'member',
           component: () => import('@/views/index/MemberView.vue'),
         },
+        {
+          path:'software',
+          name:'software',
+          component: () => import('@/views/software/SoftWare.vue'),
+        }
       ],
     },
   ],
