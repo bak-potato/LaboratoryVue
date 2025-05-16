@@ -13,12 +13,24 @@ const router = createRouter({
           name: 'index',
           component: () => import('@/views/index/IndexView.vue'),
         },
+        // 关于实验室
         {
-          path: 'design/software/software',
+          path:'about',
+          name:'about',
+          component: () => import('@/layouts/AboutLayout.vue'),
+          children: [
+            {
+              path:'',
+              name:'AboutIndex',
+              component: () => import('@/views/about/AboutIndex.vue'),
+            },
+          ]
+        },
+        {
+          path: 'software',
           name: 'software',
           component: () => import('@/views/software/SoftWare.vue'),
         },
-        // 相关成员
         {
           path:'design',
           name:'design',
@@ -50,6 +62,7 @@ const router = createRouter({
           name:'hardwaremembers',
           component: () => import('@/views/hardware/HardwareMember.vue'),
         },
+        // 相关成员
         {
           path: 'member',
           name: 'member',

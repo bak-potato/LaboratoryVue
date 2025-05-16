@@ -53,11 +53,6 @@ const honorList = ref([
 
 const honorTextList = ref([
   {
-    title: '全国大学生创新创业大赛',
-    award: '国家级立项',
-    date: '2024'
-  },
-  {
     title: '第十七届全国大学生软件创新大赛',
     award: '华东赛区三等奖',
     date: '2024-04'

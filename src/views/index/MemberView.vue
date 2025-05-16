@@ -1,9 +1,13 @@
+<!-- eslint-disable vue/block-lang -->
 <script setup>
 import { ref } from 'vue'
 // 国际化
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import tp1 from '@/assets/pura-x-1.jpg'
+import tdcybanner from '@/assets/members/tdry-banner.png'
 // 成员头像
+import zy from '@/assets/members/张洋.png'
+import xzh from '@/assets/members/许致豪.png'
 import mhx from '@/assets/members/孟皓雪.jpg'
 // import xwh from '@/assets/members/咸文慧.jpg'
 // import dym from '@/assets/members/董亚蒙.jpg'
@@ -68,13 +72,13 @@ const teachers = ref([
 // 领导人数据
 const leaders = ref([
   {
-    avatar: tp1,
+    avatar: zy,
     name: '张洋',
     position: '实验室负责人',
     description: '统筹实验室日常运营，组织协调各项目组研发工作，连续两年获得校级优秀学生干部'
   },
   {
-    avatar: tp1,
+    avatar: xzh,
     name: '许致豪',
     position: '技术部负责人',
     description: '负责技术路线规划，主导完成实验室三大核心系统的架构设计与开发'
@@ -88,7 +92,7 @@ const leaders = ref([
     <div>
       <a-carousel autoplay>
         <div>
-          <img :src="tp1" style="object-fit: cover;" />
+          <img :src="tdcybanner" style="object-fit: cover;" />
         </div>
       </a-carousel>
     </div>
@@ -126,12 +130,12 @@ const leaders = ref([
         <a-col :xs="24" :sm="12" :md="8" :lg="6" v-for="leader in leaders" :key="leader.name">
           <a-card hoverable class="member-card leader-card">
             <template #cover>
-              <a-image :src="leader.avatar" height="200px" :preview="false" />
+              <a-image :src="leader.avatar" height="300px" :preview="false" />
             </template>
             <a-card-meta :title="leader.name">
               <template #description>
                 <div class="member-info">
-                  <a-tag color="blue" class="position-tag">{{ leader.position }}</a-tag>
+                  <a-tag color="cyan" class="position-tag">{{ leader.position }}</a-tag>
                   <a-typography-paragraph class="member-desc">
                     {{ leader.description }}
                   </a-typography-paragraph>
@@ -321,7 +325,7 @@ const leaders = ref([
   background: #f6ffed;
 
   :deep(.ant-image) {
-    height: 200px !important;
+    height: 300px !important;
   }
 
   :deep(.ant-card-meta-title) {

@@ -45,6 +45,31 @@ const menuData = ref([
             title: '软件部成员',
             url: 'software/members',
             id: '3-2-2'
+          },
+          {
+            title: '前端组',
+            url: 'software/web',
+            id: '3-2-3'
+          },
+          {
+            title: '后端组',
+            url: 'software/backend',
+            id: '3-2-4'
+          },
+          {
+            title: '运维组',
+            url: 'software/ops',
+            id: '3-2-5'
+          },
+          {
+            title: '测试组',
+            url: 'software/test',
+            id: '3-2-6'
+          },
+          {
+            title: 'AI组',
+            url: 'software/ai',
+            id: '3-2-7'
           }
         ]
       },
@@ -186,7 +211,7 @@ const menuData = ref([
   },
   {
     title: '关于实验室',
-    url: '',
+    url: '/about',
     id: '5',
   }
 ])
