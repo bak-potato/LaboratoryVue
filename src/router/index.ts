@@ -12,7 +12,7 @@ const router = createRouter({
           path: '',
           name: 'index',
           component: () => import('@/views/index/IndexView.vue'),
-      children: [
+        },
         {
           path: 'software',
           name: 'software',
@@ -23,7 +23,8 @@ const router = createRouter({
           path:'design',
           name:'design',
           component: () => import('@/views/design/DesignVue.vue'),
-        }
+        },
+        {
           path: 'member',
           name: 'member',
           component: () => import('@/views/index/MemberView.vue'),
