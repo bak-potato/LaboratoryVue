@@ -18,19 +18,6 @@ import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/reset.css'
 // app.use(Antd).mount('#app')
 app.use(Antd)
-// 国际化
-import zhCN from 'ant-design-vue/es/locale/zh_CN'
-import dayjs from 'dayjs'
-import 'dayjs/locale/zh-cn'
-dayjs.locale('zh-cn')
-
-export default {
-  data() {
-    return {
-      locale: zhCN,
-    }
-  },
-}
 
 // TinyVue icon 图标库
 import * as Icons from '@ant-design/icons-vue'

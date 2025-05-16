@@ -1,16 +1,12 @@
 <!-- eslint-disable vue/block-lang -->
 <script setup>
 import { ref } from 'vue'
-
-// 图片导入
-
-
 import { TinyNavMenu } from '@opentiny/vue'
 
 const menuData = ref([
   {
     title: '首页',
-    url: '',
+    url: '/',
     id: '1'
   },
   {
@@ -107,7 +103,7 @@ const menuData = ref([
   },
   {
     title: '相关成员',
-    url: '',
+    url: 'member',
     id: '3',
   },
   {
@@ -194,6 +190,16 @@ const menuData = ref([
     id: '5',
   }
 ])
+const friendsLinks = ref([
+  {
+    name: '济宁学院',
+    url: 'https://www.jnxy.edu.cn/',
+  },
+  {
+    name: '济宁学院计算机科学与工程学院',
+    url: 'https://csae.jnxy.edu.cn/',
+  }
+])
 </script>
 
 <template>
@@ -213,10 +219,22 @@ const menuData = ref([
       </a-carousel> -->
       <router-view />
     </a-layout-content>
-    <a-layout-footer style="text-align: center">
-      Ant Design ©2018 Created by Ant UED
+    <a-layout-footer class="footer">
+      <div class="links">
+        友情链接：
+        <a v-for="link in friendsLinks" :key="link.name" :href="link.url" target="_blank">{{ link.name }}</a>
+      </div>
+      <div class="copyright">
+        <p>© College Student Innovation and Entrepreneurship Laboratory. All Rights Reserved.</p>
+        <div class="beian">
+          <a target="_blank" href="https://beian.miit.gov.cn/">鲁ICP备2024114192号-1</a>
+          <a href="https://beian.mps.gov.cn/#/query/webSearch?code=37040302006058" rel="noreferrer"
+            target="_blank">鲁公网安备37040302006058</a>
+        </div>
+      </div>
     </a-layout-footer>
   </a-layout>
+  <a-back-top />
 </template>
 
 <style scoped lang="less">
@@ -253,6 +271,60 @@ const menuData = ref([
       height: 100%;
 
       --tv-NavMenu-item-font-size: 16px;
+    }
+  }
+
+  .footer {
+    background: #f5f5f5;
+    padding: 24px 16px;
+    border-top: 1px solid #eee;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.03);
+
+    :deep(.links) {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      color: #666;
+
+      a {
+        color: #666;
+        transition: color 0.3s;
+        text-decoration: none;
+
+        &:hover {
+          color: #1677ff;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .copyright {
+      margin-top: 16px;
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+
+      p {
+        margin: 8px 0;
+      }
+
+      .beian {
+        display: flex;
+        gap: 24px;
+        justify-content: center;
+        margin-top: 12px;
+
+        a {
+          color: #888;
+          transition: color 0.3s;
+
+          &:hover {
+            color: #1677ff;
+          }
+        }
+      }
     }
   }
 }
