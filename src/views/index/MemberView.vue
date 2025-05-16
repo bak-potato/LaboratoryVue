@@ -9,13 +9,14 @@ import tdcybanner from '@/assets/members/tdry-banner.png'
 import zy from '@/assets/members/张洋.png'
 import xzh from '@/assets/members/许致豪.png'
 import mhx from '@/assets/members/孟皓雪.jpg'
-// import xwh from '@/assets/members/咸文慧.jpg'
-// import dym from '@/assets/members/董亚蒙.jpg'
+import xwh from '@/assets/members/咸雯慧.jpg'
+import dym from '@/assets/members/董亚蒙.jpg'
+import rxy from '@/assets/members/任星宇.png'
 import shl from '@/assets/members/宋洪乐.jpg'
 // 成员数据
 const members = ref([
   {
-    avatar: tp1,
+    avatar: rxy,
     name: '任星宇',
     position: '创新创业部/硬件部负责人',
     description: '为本项目团队提供技术指导和支持，拥有丰富的科研经验和学术背景'
@@ -27,13 +28,13 @@ const members = ref([
     description: '为本项目团队提供学术指导和支持，拥有丰富的科研经验和学术背景'
   },
   {
-    avatar: tp1,
-    name: '咸文慧',
+    avatar: xwh,
+    name: '咸雯慧',
     position: '文案部负责人',
     description: '负责实验室日常管理与科研项目的组织协调，曾获得国家级教学成果奖'
   },
   {
-    avatar: tp1,
+    avatar: dym,
     name: '董亚蒙',
     position: '设计部负责人',
     description: '负责实验室日常管理与科研项目的组织协调，曾获得国家级教学成果奖'

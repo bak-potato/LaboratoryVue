@@ -21,12 +21,12 @@ const menuData = ref([
         children: [
           {
             title: '创新创业部简介',
-            url: 'introduction',
+            url: '/introduction',
             id: '3-1-1'
           },
           {
             title: '创新创业部成员',
-            url: 'introduction/members',
+            url: '/introduction/members',
             id: '3-1-2'
           },
         ]
@@ -38,37 +38,37 @@ const menuData = ref([
         children: [
           {
             title: '软件部简介',
-            url: 'software',
+            url: '/software',
             id: '3-2-1'
           },
           {
             title: '软件部成员',
-            url: 'software/members',
+            url: '/software/members',
             id: '3-2-2'
           },
           {
             title: '前端组',
-            url: 'software/web',
+            url: '/software/web',
             id: '3-2-3'
           },
           {
             title: '后端组',
-            url: 'software/backend',
+            url: '/software/backend',
             id: '3-2-4'
           },
           {
             title: '运维组',
-            url: 'software/ops',
+            url: '/software/ops',
             id: '3-2-5'
           },
           {
             title: '测试组',
-            url: 'software/test',
+            url: '/software/test',
             id: '3-2-6'
           },
           {
             title: 'AI组',
-            url: 'software/ai',
+            url: '/software/ai',
             id: '3-2-7'
           }
         ]
@@ -80,12 +80,12 @@ const menuData = ref([
         children: [
           {
             title: '硬件部简介',
-            url: 'hardware',
+            url: '/hardware',
             id: '3-3-1'
           },
           {
             title: '硬件部成员',
-            url: 'hardware/members',
+            url: '/hardware/members',
             id: '3-3-2'
           }
         ]
@@ -97,12 +97,12 @@ const menuData = ref([
         children: [
           {
             title: '文案部简介',
-            url: 'copywriting',
+            url: '/copywriting',
             id: '3-4-1'
           },
           {
             title: '文案部成员',
-            url: 'copywriting/members',
+            url: '/copywriting/members',
             id: '3-4-2'
           }
         ]
@@ -114,12 +114,12 @@ const menuData = ref([
         children: [
           {
             title: '设计部简介',
-            url: 'design',
+            url: '/design',
             id: '3-5-1'
           },
           {
             title: '设计部成员',
-            url: 'design/members',
+            url: '/design/members',
             id: '3-5-2'
           }
         ]
@@ -128,7 +128,7 @@ const menuData = ref([
   },
   {
     title: '相关成员',
-    url: 'member',
+    url: '/member',
     id: '3',
   },
   {
@@ -143,12 +143,12 @@ const menuData = ref([
         children: [
           {
             title: '临界拓池',
-            url: 'ljtc',
+            url: '/ljtc',
             id: '4-1-1'
           },
           {
             title: '智润田园',
-            url: 'zrty',
+            url: '/zrty',
             id: '4-1-2'
           }
         ]
@@ -160,12 +160,12 @@ const menuData = ref([
         children: [
           {
             title: '临界拓池',
-            url: 'ljtc',
+            url: '/ljtc',
             id: '4-2-1'
           },
           {
             title: '风花雪月',
-            url: 'fhxy',
+            url: '/fhxy',
             id: '4-2-2'
           }
         ]
@@ -177,32 +177,32 @@ const menuData = ref([
         children: [
           {
             title: '临界拓池',
-            url: 'ljtc',
+            url: '/ljtc',
             id: '4-3-1'
           },
           {
             title: '风花雪月',
-            url: 'fhxy',
+            url: '/fhxy',
             id: '4-3-2'
           },
           {
             title: '智润田园',
-            url: 'zrty',
+            url: '/zrty',
             id: '4-3-3'
           },
           {
             title: '星海韵梦',
-            url: 'xhym',
+            url: '/xhym',
             id: '4-3-4'
           },
           {
             title: '智能题站',
-            url: 'zrty',
+            url: '/zrty',
             id: '4-3-5'
           },
           {
             title: '推星予瞳',
-            url: 'txyt',
+            url: '/txyt',
             id: '4-3-6'
           },
         ]
@@ -231,7 +231,8 @@ const friendsLinks = ref([
   <a-layout class="layout">
     <a-layout-header class="header">
       <!-- <div class="logo" /> -->
-      <tiny-nav-menu :data="menuData" style="height: 100%; width: 100%; margin: 0; background: #fff;"></tiny-nav-menu>
+      <tiny-nav-menu :data="menuData" allow-full-url
+        style="height: 100%; width: 100%; margin: 0; background: #fff;"></tiny-nav-menu>
     </a-layout-header>
     <a-layout-content style="margin: 0">
       <!-- <a-carousel autoplay>

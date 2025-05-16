@@ -5,14 +5,14 @@ import { TinyNavMenu } from '@opentiny/vue'
 
 const menuData = ref([
   {
-    title: '首页',
-    url: 'about',
+    title: '实验室介绍',
+    url: '/about',
     id: '1'
   },
   {
-    title: '其他',
-    url: 'crop',
-    id: '4'
+    title: '实验室风采',
+    url: '/about/intro',
+    id: '2'
   }
 ])
 </script>
@@ -29,4 +29,19 @@ const menuData = ref([
   </a-layout>
 </template>
 
-<style scoped></style>
+<style lang="less" scoped>
+.layout {
+  min-height: 100vh;
+}
+
+.header {
+  .tiny-nav-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+
+    --tv-NavMenu-item-font-size: 16px;
+  }
+}
+</style>
