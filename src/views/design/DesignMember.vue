@@ -2,75 +2,73 @@
   <div class="design-department">
     <header class="hero">
       <div class="hero-content">
-        <h1 class="department-name">实验室设计部</h1>
+        <h1 class="department-name">实验室设计部成员结构</h1>
         <p class="slogan">技术与美学的融合 · 创意驱动视觉影响力</p>
         <div class="divider"></div>
       </div>
     </header>
-    <main class="content-container">
-      <section class="about-section">
-        <h2 class="section-title">关于我们</h2>
-        <p class="section-description">
-          设计部是一个充满创意和技术的团队，致力于为计算机竞赛提供专业的视觉设计支持。我们以"技术与美学的融合"为核心理念，服务于竞赛宣传、项目路演、学术活动等场景，助力团队在技术实力之外打造更具竞争力的视觉影响力。
-        </p>
-      </section>
 
-      <section class="service-section">
-        <h2 class="section-title">核心服务领域</h2>
-        <div class="service-grid">
-          <div
-            class="service-card"
-            v-for="(service, index) in services"
-            :key="index"
-            :style="{ '--card-color': service.color }"
-          >
-          <h3>{{ service.name }}</h3>
-
-
-            <p>{{ service.description }}</p>
-            <div class="service-meta">
-              <span class="service-level">{{ service.level }}</span>
-              <span class="service-projects">{{ service.projects }}+ 项目经验</span>
+    <section class="team-section">
+      <div class="team-grid">
+        <!-- 部长展示模块 -->
+        <div class="team-card">
+          <h3 class="team-title">部长</h3>
+          <div class="member-card">
+            <div class="avatar-container">
+              <img
+                src="../../assets/20250516174736_94.png"
+                alt="部长头像"
+                class="member-avatar"
+              >
+              <div class="avatar-border"></div>
+            </div>
+            <h4>董亚蒙</h4>
+            <p class="member-title">设计部负责人</p>
+            <p class="member-description">
+              8年设计行业经验，曾主导20+大型竞赛视觉设计，擅长品牌全案策划与团队管理
+            </p>
+            <div class="member-skills">
+              <span class="skill-tag">品牌设计</span>
+              <span class="skill-tag">项目管理</span>
+              <span class="skill-tag">创意指导</span>
             </div>
           </div>
         </div>
-      </section>
 
-        <h2 class="section-title">核心理念</h2>
-        <div class="philosophy-card">
-          <div class="philosophy-icon">✨</div>
-          <p class="philosophy-text">
-            我们坚信设计是技术的可视化语言，通过<br>
-            <strong>专业技术</strong>与<strong>艺术审美</strong>的双重驱动，<br>
-            让每一个视觉作品都成为传递价值的有力媒介。
-          </p>
+        <!-- 核心成员展示模块 -->
+        <div class="team-card">
+          <h3 class="team-title">核心成员</h3>
+          <div class="member-grid">
+            <div
+              class="member-card"
+              v-for="(member) in members"
+              :key="member.name"
+            >
+              <div class="avatar-container">
+                <img
+                  src="https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg"
+                  :alt="member.name + '的头像'"
+                  class="member-avatar"
+                >
+                <div class="avatar-border"></div>
+              </div>
+              <h4>{{ member.name }}</h4>
+              <p class="member-title">{{ member.position }}</p>
+              <p class="member-description">{{ member.intro }}</p>
+              <div class="member-skills">
+                <span
+                  class="skill-tag"
+                  v-for="(skill, sIndex) in member.skills"
+                  :key="sIndex"
+                >
+                  {{ skill }}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
-    </main>
-    <section class="team-section">
-  <div class="team-container">
-    <h3 class="team-title">部长</h3>
-    <div class="member-card">
-      <div class="avatar-container">
-        <img
-          src="../../assets/20250516174736_94.png"
-          alt="部长头像"
-          class="member-avatar"
-        >
-        <div class="avatar-border"></div>
       </div>
-      <h4>董亚蒙</h4>
-      <p class="member-title">设计部负责人</p>
-      <p class="member-description">
-        8年设计行业经验，曾主导20+大型竞赛视觉设计，擅长品牌全案策划与团队管理
-      </p>
-      <div class="member-skills">
-        <span class="skill-tag">品牌设计</span>
-        <span class="skill-tag">项目管理</span>
-        <span class="skill-tag">创意指导</span>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <footer class="footer">
       <div class="contact-info">
@@ -92,93 +90,34 @@ import { ref } from 'vue';
 
 // 团队成员数据
 
-
-// 核心服务数据
-const services = [
+const members = [
   {
-    name: "PS图像处理",
-    description: "高精度图片精修、素材合成、视觉效果优化、创意修图、产品图处理",
-    icon: "fas fa-image",
-    color: "#3498db",
-    level: "核心服务",
-    projects: 120,
-    experience: "5年+专业经验"
+    name: "牛悦",
+    position: "资深视觉设计师",
+    intro: "专注海报设计与插画创作，曾获全国大学生设计竞赛一等奖",
+    skills: ["海报设计", "插画", "PS精修"]
   },
   {
-    name: "海报设计",
-    description: "竞赛宣传海报、活动主视觉、信息可视化设计、展览海报、社交媒体配图",
-    icon: "fas fa-pen-fancy",
-    color: "#e74c3c",
-    level: "核心服务",
-    projects: 85,
-    experience: "专业设计师团队"
+    name: "周超群",
+    position: "UI/UX设计师",
+    intro: "擅长移动端交互设计，主导过5款竞赛类APP的界面设计",
+    skills: ["UI设计", "交互原型", "Figma"]
   },
   {
-    name: "PPT制作",
-    description: "项目路演PPT、学术汇报PPT、动态交互设计、数据可视化、演讲辅助设计",
-    icon: "fas fa-file-powerpoint",
-    color: "#f39c12",
-    level: "核心服务",
-    projects: 92,
-    experience: "学术与商业双领域覆盖"
-  },
-  {
-    name: "视频剪辑",
-    description: "竞赛宣传片、成果展示视频、动画特效制作、短视频制作、动态演示视频",
-    icon: "fas fa-film",
-    color: "#2ecc71",
-    level: "特色服务",
-    projects: 45,
-    experience: "AE/PR专业团队"
-  },
-  {
-    name: "UI/UX设计",
-    description: "用户界面设计、交互原型设计、视觉风格设计、移动应用设计、响应式设计",
-    icon: "fas fa-palette",
-    color: "#9b59b6",
-    level: "特色服务",
-    projects: 63,
-    experience: "用户体验导向设计"
-  },
-  {
-    name: "品牌视觉",
-    description: "Logo设计、VI系统设计、品牌手册制作、配色方案、字体设计",
-    icon: "fas fa-signature",
-    color: "#34495e",
-    level: "战略服务",
-    projects: 38,
-    experience: "系统性品牌建设"
+    name: "赵六",
+    position: "视频剪辑师",
+    intro: "精通AE/PR，负责竞赛宣传片制作，累计剪辑时长超200小时",
+    skills: ["视频剪辑", "特效制作", "动态视觉"]
   }
 ];
+// 核心服务数据
+
 
 // 当前年份
 const currentYear = ref(new Date().getFullYear());
 </script>
 
 <style scoped>
-.team-section {
-  background-color: var(--white);
-  padding: 60px 20px;
-  margin: 80px 0;
-  position: relative;
-}
-
-.team-container {
-  max-width: 400px; /* 控制卡片宽度 */
-  margin: 0 auto; /* 水平居中 */
-  text-align: center; /* 文本居中 */
-}
-
-.member-card {
-  background: var(--white);
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition);
-  border: 1px solid rgba(0,0,0,0.05);
-  width: 100%; /* 确保卡片宽度充满容器 */
-}
 /* 全局变量 */
 :root {
   --primary-color: #2c3e50;
@@ -238,7 +177,7 @@ const currentYear = ref(new Date().getFullYear());
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 20px;
-  color: var(--white);
+  color: #97a3ae;
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
   letter-spacing: 2px;
 }
@@ -439,7 +378,13 @@ const currentYear = ref(new Date().getFullYear());
   background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
 }
 
-
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 .team-title {
   font-size: 1.8rem;
@@ -576,7 +521,7 @@ const currentYear = ref(new Date().getFullYear());
 
 .contact-info p {
   margin: 10px 0;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255,255,255,0.8);
 }
 
 .social-links {

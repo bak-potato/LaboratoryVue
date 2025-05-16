@@ -12,9 +12,9 @@ const router = createRouter({
           path: '',
           name: 'index',
           component: () => import('@/views/index/IndexView.vue'),
-      children: [
+        },
         {
-          path: 'software',
+          path: 'design/software/software',
           name: 'software',
           component: () => import('@/views/software/SoftWare.vue'),
         },
@@ -23,7 +23,34 @@ const router = createRouter({
           path:'design',
           name:'design',
           component: () => import('@/views/design/DesignVue.vue'),
-        }
+
+        },
+        {
+          path:'design/members',
+          name:'designmembers',
+          component: () => import('@/views/design/DesignMember.vue'),
+        },
+        {
+          path:'copywriting/members',
+          name:'copywritingmembers',
+          component: () => import('@/views/copywriting/CopyWritingMember.vue'),
+        },
+        {
+          path:'copywriting',
+          name:'copywriting',
+          component: () => import('@/views/copywriting/CopyWriting.vue'),
+        },{
+
+          path:'hardware',
+          name:'hardware',
+          component: () => import('@/views/hardware/HardwareVue.vue'),
+        },
+        {
+          path:'hardware/members',
+          name:'hardwaremembers',
+          component: () => import('@/views/hardware/HardwareMember.vue'),
+        },
+        {
           path: 'member',
           name: 'member',
           component: () => import('@/views/index/MemberView.vue'),

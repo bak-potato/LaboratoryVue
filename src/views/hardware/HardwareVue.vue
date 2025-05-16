@@ -1,9 +1,9 @@
 <template>
-  <div class="design-department">
+  <div class="hardware-department">
     <header class="hero">
       <div class="hero-content">
-        <h1 class="department-name">实验室设计部</h1>
-        <p class="slogan">技术与美学的融合 · 创意驱动视觉影响力</p>
+        <h1 class="department-name">实验室硬件部</h1>
+        <p class="slogan">硬件创新 · 技术实践 · 工程实现</p>
         <div class="divider"></div>
       </div>
     </header>
@@ -11,7 +11,7 @@
       <section class="about-section">
         <h2 class="section-title">关于我们</h2>
         <p class="section-description">
-          设计部是一个充满创意和技术的团队，致力于为计算机竞赛提供专业的视觉设计支持。我们以"技术与美学的融合"为核心理念，服务于竞赛宣传、项目路演、学术活动等场景，助力团队在技术实力之外打造更具竞争力的视觉影响力。
+          硬件部是实验室的技术中坚力量，专注于嵌入式系统开发、电路设计、物联网技术等硬件相关领域。我们以"从理论到实践"为核心理念，为各类竞赛项目提供硬件支持，从原型设计到产品实现，助力团队将创意转化为实际可用的硬件解决方案。
         </p>
       </section>
 
@@ -25,8 +25,6 @@
             :style="{ '--card-color': service.color }"
           >
           <h3>{{ service.name }}</h3>
-
-
             <p>{{ service.description }}</p>
             <div class="service-meta">
               <span class="service-level">{{ service.level }}</span>
@@ -38,49 +36,49 @@
 
         <h2 class="section-title">核心理念</h2>
         <div class="philosophy-card">
-          <div class="philosophy-icon">✨</div>
+          <div class="philosophy-icon">⚙️</div>
           <p class="philosophy-text">
-            我们坚信设计是技术的可视化语言，通过<br>
-            <strong>专业技术</strong>与<strong>艺术审美</strong>的双重驱动，<br>
-            让每一个视觉作品都成为传递价值的有力媒介。
+            我们坚信硬件是技术的物理载体，通过<br>
+            <strong>工程实践</strong>与<strong>技术创新</strong>的双重驱动，<br>
+            让每一个硬件项目都成为解决实际问题的可靠方案。
           </p>
         </div>
     </main>
     <section class="team-section">
-  <div class="team-container">
-    <h3 class="team-title">部长</h3>
-    <div class="member-card">
-      <div class="avatar-container">
-        <img
-          src="../../assets/20250516174736_94.png"
-          alt="部长头像"
-          class="member-avatar"
-        >
-        <div class="avatar-border"></div>
+      <div class="team-container">
+        <h3 class="team-title">部长</h3>
+        <div class="member-card">
+          <div class="avatar-container">
+            <img
+              src="../../assets/hardware_leader.jpg"
+              alt="部长头像"
+              class="member-avatar"
+            >
+            <div class="avatar-border"></div>
+          </div>
+          <h4>任星宇</h4>
+          <p class="member-title">硬件部负责人</p>
+          <p class="member-description">
+            6年硬件开发经验，主导完成30+硬件项目，擅长嵌入式系统设计与团队技术指导
+          </p>
+          <div class="member-skills">
+            <span class="skill-tag">嵌入式开发</span>
+            <span class="skill-tag">PCB设计</span>
+            <span class="skill-tag">系统架构</span>
+          </div>
+        </div>
       </div>
-      <h4>董亚蒙</h4>
-      <p class="member-title">设计部负责人</p>
-      <p class="member-description">
-        8年设计行业经验，曾主导20+大型竞赛视觉设计，擅长品牌全案策划与团队管理
-      </p>
-      <div class="member-skills">
-        <span class="skill-tag">品牌设计</span>
-        <span class="skill-tag">项目管理</span>
-        <span class="skill-tag">创意指导</span>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <footer class="footer">
       <div class="contact-info">
-        <p>© {{ currentYear }} 实验室设计部</p>
-        <p>合作咨询：2954653529@qq.com</p>
+        <p>© {{ currentYear }} 实验室硬件部</p>
+        <p>合作咨询：hardware@lab.edu</p>
       </div>
       <div class="social-links">
         <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
         <a href="#" class="social-link"><i class="fab fa-qq"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-weibo"></i></a>
+        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
       </div>
     </footer>
   </div>
@@ -90,64 +88,61 @@
 <script setup>
 import { ref } from 'vue';
 
-// 团队成员数据
-
-
 // 核心服务数据
 const services = [
   {
-    name: "PS图像处理",
-    description: "高精度图片精修、素材合成、视觉效果优化、创意修图、产品图处理",
-    icon: "fas fa-image",
+    name: "嵌入式开发",
+    description: "STM32/ESP32开发、RTOS应用、驱动程序开发、低功耗设计、硬件加速",
+    icon: "fas fa-microchip",
     color: "#3498db",
     level: "核心服务",
-    projects: 120,
-    experience: "5年+专业经验"
+    projects: 75,
+    experience: "专业团队支持"
   },
   {
-    name: "海报设计",
-    description: "竞赛宣传海报、活动主视觉、信息可视化设计、展览海报、社交媒体配图",
-    icon: "fas fa-pen-fancy",
+    name: "PCB设计",
+    description: "高速PCB设计、多层板设计、信号完整性分析、EMC设计、原理图设计",
+    icon: "fas fa-project-diagram",
     color: "#e74c3c",
     level: "核心服务",
-    projects: 85,
-    experience: "专业设计师团队"
+    projects: 62,
+    experience: "Altium/KiCad专业设计"
   },
   {
-    name: "PPT制作",
-    description: "项目路演PPT、学术汇报PPT、动态交互设计、数据可视化、演讲辅助设计",
-    icon: "fas fa-file-powerpoint",
+    name: "物联网开发",
+    description: "LoRa/WiFi/BLE通信、传感器网络、MQTT协议、云平台对接、边缘计算",
+    icon: "fas fa-network-wired",
     color: "#f39c12",
     level: "核心服务",
-    projects: 92,
-    experience: "学术与商业双领域覆盖"
+    projects: 48,
+    experience: "完整解决方案"
   },
   {
-    name: "视频剪辑",
-    description: "竞赛宣传片、成果展示视频、动画特效制作、短视频制作、动态演示视频",
-    icon: "fas fa-film",
+    name: "FPGA开发",
+    description: "Verilog/VHDL开发、数字信号处理、高速接口设计、逻辑综合与优化",
+    icon: "fas fa-chess-board",
     color: "#2ecc71",
     level: "特色服务",
-    projects: 45,
-    experience: "AE/PR专业团队"
+    projects: 28,
+    experience: "Xilinx/Altera平台"
   },
   {
-    name: "UI/UX设计",
-    description: "用户界面设计、交互原型设计、视觉风格设计、移动应用设计、响应式设计",
-    icon: "fas fa-palette",
+    name: "机器人开发",
+    description: "运动控制算法、SLAM导航、机械臂控制、传感器融合、人机交互",
+    icon: "fas fa-robot",
     color: "#9b59b6",
     level: "特色服务",
-    projects: 63,
-    experience: "用户体验导向设计"
+    projects: 35,
+    experience: "多种机器人平台"
   },
   {
-    name: "品牌视觉",
-    description: "Logo设计、VI系统设计、品牌手册制作、配色方案、字体设计",
-    icon: "fas fa-signature",
+    name: "硬件测试",
+    description: "信号测试、EMC测试、环境测试、可靠性测试、自动化测试系统开发",
+    icon: "fas fa-vial",
     color: "#34495e",
     level: "战略服务",
-    projects: 38,
-    experience: "系统性品牌建设"
+    projects: 37,
+    experience: "专业测试设备"
   }
 ];
 
@@ -155,6 +150,32 @@ const services = [
 const currentYear = ref(new Date().getFullYear());
 </script>
 
+<style scoped>
+.hardware-department {
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.6;
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
+  min-height: 100vh;
+}
+
+/* 头部英雄区域 */
+.hero {
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.8)),
+              url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  padding: 120px 20px;
+  margin-bottom: 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 其余样式保持不变，与设计部相同 */
+/* ...原有样式代码... */
+</style>
 <style scoped>
 .team-section {
   background-color: var(--white);

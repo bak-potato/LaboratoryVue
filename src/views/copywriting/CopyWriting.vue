@@ -1,9 +1,9 @@
 <template>
-  <div class="design-department">
+  <div class="copywriting-department">
     <header class="hero">
       <div class="hero-content">
-        <h1 class="department-name">实验室设计部</h1>
-        <p class="slogan">技术与美学的融合 · 创意驱动视觉影响力</p>
+        <h1 class="department-name">实验室文案部</h1>
+        <p class="slogan">文字与策略的融合 · 创意驱动传播影响力</p>
         <div class="divider"></div>
       </div>
     </header>
@@ -11,7 +11,7 @@
       <section class="about-section">
         <h2 class="section-title">关于我们</h2>
         <p class="section-description">
-          设计部是一个充满创意和技术的团队，致力于为计算机竞赛提供专业的视觉设计支持。我们以"技术与美学的融合"为核心理念，服务于竞赛宣传、项目路演、学术活动等场景，助力团队在技术实力之外打造更具竞争力的视觉影响力。
+          文案部是一个充满创意和策略思维的团队，致力于为计算机竞赛提供专业的文字创作支持。我们以"文字与策略的融合"为核心理念，服务于竞赛宣传、项目路演、学术活动等场景，通过精准的文字表达帮助团队在技术实力之外打造更具感染力的传播效果。
         </p>
       </section>
 
@@ -25,8 +25,6 @@
             :style="{ '--card-color': service.color }"
           >
           <h3>{{ service.name }}</h3>
-
-
             <p>{{ service.description }}</p>
             <div class="service-meta">
               <span class="service-level">{{ service.level }}</span>
@@ -38,43 +36,43 @@
 
         <h2 class="section-title">核心理念</h2>
         <div class="philosophy-card">
-          <div class="philosophy-icon">✨</div>
+          <div class="philosophy-icon">✍️</div>
           <p class="philosophy-text">
-            我们坚信设计是技术的可视化语言，通过<br>
-            <strong>专业技术</strong>与<strong>艺术审美</strong>的双重驱动，<br>
-            让每一个视觉作品都成为传递价值的有力媒介。
+            我们坚信文字是技术的最佳诠释者，通过<br>
+            <strong>精准表达</strong>与<strong>创意策略</strong>的双重驱动，<br>
+            让每一个文字作品都成为传递价值的有力媒介。
           </p>
         </div>
     </main>
     <section class="team-section">
-  <div class="team-container">
-    <h3 class="team-title">部长</h3>
-    <div class="member-card">
-      <div class="avatar-container">
-        <img
-          src="../../assets/20250516174736_94.png"
-          alt="部长头像"
-          class="member-avatar"
-        >
-        <div class="avatar-border"></div>
+      <div class="team-container">
+        <h3 class="team-title">部长</h3>
+        <div class="member-card">
+          <div class="avatar-container">
+            <img
+              src="../../assets/members/咸雯慧.jpg"
+              alt="部长头像"
+              class="member-avatar"
+            >
+            <div class="avatar-border"></div>
+          </div>
+          <h4>咸雯慧</h4>
+          <p class="member-title">文案部负责人</p>
+          <p class="member-description">
+            5年文案策划经验，曾主导30+大型竞赛文案创作，擅长品牌故事构建与传播策略制定
+          </p>
+          <div class="member-skills">
+            <span class="skill-tag">文案策划</span>
+            <span class="skill-tag">品牌故事</span>
+            <span class="skill-tag">创意写作</span>
+          </div>
+        </div>
       </div>
-      <h4>董亚蒙</h4>
-      <p class="member-title">设计部负责人</p>
-      <p class="member-description">
-        8年设计行业经验，曾主导20+大型竞赛视觉设计，擅长品牌全案策划与团队管理
-      </p>
-      <div class="member-skills">
-        <span class="skill-tag">品牌设计</span>
-        <span class="skill-tag">项目管理</span>
-        <span class="skill-tag">创意指导</span>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
     <footer class="footer">
       <div class="contact-info">
-        <p>© {{ currentYear }} 实验室设计部</p>
+        <p>© {{ currentYear }} 实验室文案部</p>
         <p>合作咨询：2954653529@qq.com</p>
       </div>
       <div class="social-links">
@@ -90,64 +88,61 @@
 <script setup>
 import { ref } from 'vue';
 
-// 团队成员数据
-
-
 // 核心服务数据
 const services = [
   {
-    name: "PS图像处理",
-    description: "高精度图片精修、素材合成、视觉效果优化、创意修图、产品图处理",
-    icon: "fas fa-image",
+    name: "竞赛文案创作",
+    description: "竞赛宣传文案、项目介绍文案、技术说明文案、获奖感言、活动主持稿",
+    icon: "fas fa-pen",
     color: "#3498db",
     level: "核心服务",
-    projects: 120,
+    projects: 150,
+    experience: "专业文案团队"
+  },
+  {
+    name: "品牌故事构建",
+    description: "团队品牌故事、项目背景故事、技术发展历程、创始人故事、企业文化文案",
+    icon: "fas fa-book",
+    color: "#e74c3c",
+    level: "核心服务",
+    projects: 75,
     experience: "5年+专业经验"
   },
   {
-    name: "海报设计",
-    description: "竞赛宣传海报、活动主视觉、信息可视化设计、展览海报、社交媒体配图",
-    icon: "fas fa-pen-fancy",
-    color: "#e74c3c",
-    level: "核心服务",
-    projects: 85,
-    experience: "专业设计师团队"
-  },
-  {
-    name: "PPT制作",
-    description: "项目路演PPT、学术汇报PPT、动态交互设计、数据可视化、演讲辅助设计",
-    icon: "fas fa-file-powerpoint",
+    name: "演讲稿撰写",
+    description: "路演演讲稿、学术报告稿、颁奖致辞、开幕闭幕词、即兴演讲框架",
+    icon: "fas fa-microphone",
     color: "#f39c12",
     level: "核心服务",
-    projects: 92,
-    experience: "学术与商业双领域覆盖"
+    projects: 110,
+    experience: "演讲与表达专家"
   },
   {
-    name: "视频剪辑",
-    description: "竞赛宣传片、成果展示视频、动画特效制作、短视频制作、动态演示视频",
-    icon: "fas fa-film",
+    name: "新媒体文案",
+    description: "微信公众号文章、微博文案、短视频脚本、H5互动文案、社交媒体传播方案",
+    icon: "fas fa-share-alt",
     color: "#2ecc71",
     level: "特色服务",
-    projects: 45,
-    experience: "AE/PR专业团队"
+    projects: 65,
+    experience: "新媒体传播专家"
   },
   {
-    name: "UI/UX设计",
-    description: "用户界面设计、交互原型设计、视觉风格设计、移动应用设计、响应式设计",
-    icon: "fas fa-palette",
+    name: "技术文档优化",
+    description: "项目说明书优化、技术文档润色、API文档编写、用户手册制作、技术白皮书",
+    icon: "fas fa-file-alt",
     color: "#9b59b6",
     level: "特色服务",
-    projects: 63,
-    experience: "用户体验导向设计"
+    projects: 85,
+    experience: "技术写作专家"
   },
   {
-    name: "品牌视觉",
-    description: "Logo设计、VI系统设计、品牌手册制作、配色方案、字体设计",
-    icon: "fas fa-signature",
+    name: "创意广告文案",
+    description: "竞赛宣传标语、项目推广文案、海报文案设计、视频广告脚本、品牌Slogan",
+    icon: "fas fa-lightbulb",
     color: "#34495e",
     level: "战略服务",
-    projects: 38,
-    experience: "系统性品牌建设"
+    projects: 50,
+    experience: "创意总监指导"
   }
 ];
 
@@ -155,6 +150,19 @@ const services = [
 const currentYear = ref(new Date().getFullYear());
 </script>
 
+<style scoped>
+/* 样式部分保持不变，只需修改类名前缀 */
+.copywriting-department {
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.6;
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
+  min-height: 100vh;
+}
+
+/* 其余样式与之前相同，只需将.design-department改为.copywriting-department */
+/* ... */
+</style>
 <style scoped>
 .team-section {
   background-color: var(--white);
