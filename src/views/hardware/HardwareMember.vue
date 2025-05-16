@@ -2,7 +2,7 @@
   <div class="design-department">
     <header class="hero">
       <div class="hero-content">
-        <h1 class="department-name">实验室设计部成员结构</h1>
+        <h1 class="department-name">实验室设计部核心成员结构</h1>
         <p class="slogan">技术与美学的融合 · 创意驱动视觉影响力</p>
         <div class="divider"></div>
       </div>

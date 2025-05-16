@@ -2,7 +2,7 @@
   <div class="copywriting-department">
     <header class="hero">
       <div class="hero-content">
-        <h1 class="department-name">实验室文案部成员结构</h1>
+        <h1 class="department-name">实验室文案部核心成员结构</h1>
         <p class="slogan">文字与策略的融合 · 创意驱动传播影响力</p>
         <div class="divider"></div>
       </div>
