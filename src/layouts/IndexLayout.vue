@@ -3,8 +3,6 @@
 import { ref } from 'vue'
 
 // 图片导入
-import tp1 from '@/assets/pura-x-1.jpg'
-import tp2 from '@/assets/pura-x-2.jpg'
 
 
 import { TinyNavMenu } from '@opentiny/vue'
