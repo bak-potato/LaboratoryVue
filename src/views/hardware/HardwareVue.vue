@@ -18,13 +18,9 @@
       <section class="service-section">
         <h2 class="section-title">核心服务领域</h2>
         <div class="service-grid">
-          <div
-            class="service-card"
-            v-for="(service, index) in services"
-            :key="index"
-            :style="{ '--card-color': service.color }"
-          >
-          <h3>{{ service.name }}</h3>
+          <div class="service-card" v-for="(service, index) in services" :key="index"
+            :style="{ '--card-color': service.color }">
+            <h3>{{ service.name }}</h3>
             <p>{{ service.description }}</p>
             <div class="service-meta">
               <span class="service-level">{{ service.level }}</span>
@@ -34,26 +30,22 @@
         </div>
       </section>
 
-        <h2 class="section-title">核心理念</h2>
-        <div class="philosophy-card">
-          <div class="philosophy-icon">⚙️</div>
-          <p class="philosophy-text">
-            我们坚信硬件是技术的物理载体，通过<br>
-            <strong>工程实践</strong>与<strong>技术创新</strong>的双重驱动，<br>
-            让每一个硬件项目都成为解决实际问题的可靠方案。
-          </p>
-        </div>
+      <h2 class="section-title">核心理念</h2>
+      <div class="philosophy-card">
+        <div class="philosophy-icon">⚙️</div>
+        <p class="philosophy-text">
+          我们坚信硬件是技术的物理载体，通过<br>
+          <strong>工程实践</strong>与<strong>技术创新</strong>的双重驱动，<br>
+          让每一个硬件项目都成为解决实际问题的可靠方案。
+        </p>
+      </div>
     </main>
     <section class="team-section">
       <div class="team-container">
         <h3 class="team-title">部长</h3>
         <div class="member-card">
           <div class="avatar-container">
-            <img
-              src="../../assets/hardware_leader.jpg"
-              alt="部长头像"
-              class="member-avatar"
-            >
+            <img :src="rxy" alt="部长头像" class="member-avatar">
             <div class="avatar-border"></div>
           </div>
           <h4>任星宇</h4>
@@ -69,24 +61,13 @@
         </div>
       </div>
     </section>
-
-    <footer class="footer">
-      <div class="contact-info">
-        <p>© {{ currentYear }} 实验室硬件部</p>
-        <p>合作咨询：hardware@lab.edu</p>
-      </div>
-      <div class="social-links">
-        <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-qq"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-      </div>
-    </footer>
   </div>
 </template>
 <!-- eslint-disable vue/block-lang -->
 
 <script setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
+import rxy from '@/assets/members/任星宇.png'
 
 // 核心服务数据
 const services = [
@@ -162,7 +143,7 @@ const currentYear = ref(new Date().getFullYear());
 /* 头部英雄区域 */
 .hero {
   background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.8)),
-              url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
   background-size: cover;
   background-position: center;
   color: var(--white);
@@ -185,9 +166,12 @@ const currentYear = ref(new Date().getFullYear());
 }
 
 .team-container {
-  max-width: 400px; /* 控制卡片宽度 */
-  margin: 0 auto; /* 水平居中 */
-  text-align: center; /* 文本居中 */
+  max-width: 400px;
+  /* 控制卡片宽度 */
+  margin: 0 auto;
+  /* 水平居中 */
+  text-align: center;
+  /* 文本居中 */
 }
 
 .member-card {
@@ -197,9 +181,11 @@ const currentYear = ref(new Date().getFullYear());
   text-align: center;
   box-shadow: var(--shadow-md);
   transition: var(--transition);
-  border: 1px solid rgba(0,0,0,0.05);
-  width: 100%; /* 确保卡片宽度充满容器 */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 100%;
+  /* 确保卡片宽度充满容器 */
 }
+
 /* 全局变量 */
 :root {
   --primary-color: #2c3e50;
@@ -208,9 +194,9 @@ const currentYear = ref(new Date().getFullYear());
   --light-gray: #f8f9fa;
   --dark-gray: #495057;
   --white: #ffffff;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -226,7 +212,7 @@ const currentYear = ref(new Date().getFullYear());
 /* 头部英雄区域 */
 .hero {
   background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.8)),
-              url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
   background-size: cover;
   background-position: center;
   color: var(--white);
@@ -244,7 +230,7 @@ const currentYear = ref(new Date().getFullYear());
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.3) 100%);
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
   z-index: 0;
 }
 
@@ -260,7 +246,7 @@ const currentYear = ref(new Date().getFullYear());
   font-weight: 700;
   margin-bottom: 20px;
   color: var(--white);
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   letter-spacing: 2px;
 }
 
@@ -268,7 +254,7 @@ const currentYear = ref(new Date().getFullYear());
   font-size: 1.5rem;
   font-weight: 300;
   margin-bottom: 30px;
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
   letter-spacing: 1px;
 }
 
@@ -278,7 +264,7 @@ const currentYear = ref(new Date().getFullYear());
   background-color: var(--accent-color);
   margin: 30px auto;
   border-radius: 2px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* 内容容器 */
@@ -344,7 +330,7 @@ const currentYear = ref(new Date().getFullYear());
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
   z-index: 0;
 }
 
@@ -439,9 +425,17 @@ const currentYear = ref(new Date().getFullYear());
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /* 团队模块 */
@@ -495,7 +489,7 @@ const currentYear = ref(new Date().getFullYear());
   text-align: center;
   box-shadow: var(--shadow-md);
   transition: var(--transition);
-  border: 1px solid rgba(0,0,0,0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .member-card:hover {
@@ -532,8 +526,13 @@ const currentYear = ref(new Date().getFullYear());
 }
 
 @keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .member-card h4 {
@@ -570,53 +569,6 @@ const currentYear = ref(new Date().getFullYear());
   border-radius: 20px;
   font-size: 0.8rem;
   box-shadow: var(--shadow-sm);
-}
-
-/* 页脚 */
-.footer {
-  background-color: var(--primary-color);
-  color: var(--white);
-  padding: 60px 20px 30px;
-  text-align: center;
-  position: relative;
-}
-
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
-}
-
-.contact-info {
-  margin-bottom: 20px;
-}
-
-.contact-info p {
-  margin: 10px 0;
-  color: rgba(0, 0, 0, 0.8);
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.social-link {
-  color: var(--white);
-  font-size: 1.5rem;
-  transition: var(--transition);
-  opacity: 0.8;
-}
-
-.social-link:hover {
-  opacity: 1;
-  transform: translateY(-3px);
 }
 
 /* 响应式调整 */

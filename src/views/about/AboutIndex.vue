@@ -30,20 +30,54 @@ import hz2025 from '@/assets/about/hz2025.jpg'
           <div class="feature-item">
             <icon-rocket theme="filled" size="32" />
             <h3>创新培养模式</h3>
-            <p>采用"项目驱动+竞赛实践"的双轨制人才培养体系</p>
+            <p>采用"项目驱动+竞赛实践"的双轨制人才培养体系，实现“以赛促学”的核心理念。</p>
+          </div>
+        </a-col>
+        <a-col :xs="24" :sm="12" :md="8">
+          <div class="feature-item">
+            <icon-laptop theme="filled" size="32" />
+            <h3>一对多的培养方式</h3>
+            <p>我们将在前期采用一位学长/学姐来辅导学生，在后期采用"项目驱动+竞赛实践"的双轨制人才培养体系。</p>
+          </div>
+        </a-col>
+        <a-col :xs="24" :sm="12" :md="8">
+          <div class="feature-item">
+            <icon-laptop theme="filled" size="32" />
+            <h3>多轮考核筛选</h3>
+            <p>通过多轮考核筛选，将较差的人员筛选出，保证了实验室的人员质量。</p>
           </div>
         </a-col>
         <!-- 其他特征项... -->
       </a-row>
     </div>
 
-    <!-- 研究方向 -->
+    <!-- 开发方向 -->
     <div class="section research">
-      <h2 class="section-title">研究方向</h2>
+      <h2 class="section-title">开发方向</h2>
       <a-timeline>
         <a-timeline-item color="blue">
-          <h3>人工智能与机器学习</h3>
-          <p>自然语言处理、计算机视觉、深度学习框架优化</p>
+          <h3>临界拓池</h3>
+          <p>计算机线程池、分布式系统设计</p>
+        </a-timeline-item>
+        <a-timeline-item color="green">
+          <h3>智润田园</h3>
+          <p>配肥系统，智慧农业</p>
+        </a-timeline-item>
+        <a-timeline-item color="orange">
+          <h3>风花雪月</h3>
+          <p>维护人员的集中式管理服务器平台</p>
+        </a-timeline-item>
+        <a-timeline-item color="purple">
+          <h3>星海韵梦</h3>
+          <p>一站式编程社区</p>
+        </a-timeline-item>
+        <a-timeline-item color="green">
+          <h3>智能题站</h3>
+          <p>人工智能融合的智能出题系统</p>
+        </a-timeline-item>
+        <a-timeline-item color="orange">
+          <h3>未完待续</h3>
+          <p>接下来的开发方向，就让我们继续书写！</p>
         </a-timeline-item>
         <!-- 其他时间线项... -->
       </a-timeline>

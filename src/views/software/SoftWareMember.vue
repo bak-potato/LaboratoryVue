@@ -7,47 +7,29 @@
 
     <div class="filters">
       <div class="team-filter">
-        <button
-          v-for="group in groups"
-          :key="group.name"
-          @click="filterTeam(group.name)"
-          :class="{ active: activeTeam === group.name }"
-        >
+        <button v-for="group in groups" :key="group.name" @click="filterTeam(group.name)"
+          :class="{ active: activeTeam === group.name }">
           {{ group.name }}
         </button>
-        <button
-          @click="filterTeam('all')"
-          :class="{ active: activeTeam === 'all' }"
-        >
+        <button @click="filterTeam('all')" :class="{ active: activeTeam === 'all' }">
           全部成员
         </button>
       </div>
 
       <div class="grade-filter">
-        <button
-          v-for="grade in grades"
-          :key="grade"
-          @click="filterGrade(grade)"
-          :class="{ active: activeGrade === grade }"
-        >
+        <button v-for="grade in grades" :key="grade" @click="filterGrade(grade)"
+          :class="{ active: activeGrade === grade }">
           {{ grade }}
         </button>
-        <button
-          @click="filterGrade('all')"
-          :class="{ active: activeGrade === 'all' }"
-        >
+        <button @click="filterGrade('all')" :class="{ active: activeGrade === 'all' }">
           全部年级
         </button>
       </div>
     </div>
 
     <main class="members-container">
-      <section
-        v-for="member in filteredMembers"
-        :key="member.id"
-        class="member-card"
-        :style="{ borderTop: `4px solid ${getGroupColor(member.team)}` }"
-      >
+      <section v-for="member in filteredMembers" :key="member.id" class="member-card"
+        :style="{ borderTop: `4px solid ${getGroupColor(member.team)}` }">
         <div class="member-avatar">
           <img :src="member.avatar" :alt="member.name">
         </div>
@@ -98,14 +80,14 @@ const groups = [
 const grades = ["2022级", "2023级", "2024级"]
 
 const members = [
-{
+  {
     id: 0,
     name: "张洋",
     team: "后端组",
     position: "实验室执行负责人",
     grade: "2023级",
     bio: "全面负责实验室的运营和管理，协调各小组工作",
-    skills: ["项目管理", "团队协作", "技术决策","Java", "Spring Boot", "微服务", "MySQL", "Redis"],
+    skills: ["项目管理", "团队协作", "技术决策", "Java", "Spring Boot", "微服务", "MySQL", "Redis"],
     avatar: zhangyang
   },
   {
@@ -115,8 +97,8 @@ const members = [
     position: "实验室执行负责人",
     grade: "2024级",
     bio: "全面负责实验室的运营和管理，协调各小组工作",
-    skills: ["项目管理", "团队协作", "技术决策", "Vue", "React", "TypeScript","javascript","css3"],
-    avatar:xuzhihao
+    skills: ["项目管理", "团队协作", "技术决策", "Vue", "React", "TypeScript", "javascript", "css3"],
+    avatar: xuzhihao
   },
   {
     id: 2,
@@ -136,7 +118,7 @@ const members = [
     grade: "2024级",
     bio: "负责后端技术栈选型和系统架构设计",
     skills: ["Java", "Spring Boot", "微服务", "MySQL", "Redis"],
-    avatar:yangyuanyi
+    avatar: yangyuanyi
   },
   {
     id: 4,
@@ -146,7 +128,7 @@ const members = [
     grade: "2024级",
     bio: "负责实验室基础设施建设和维护",
     skills: ["Linux", "Docker", "Kubernetes", "CI/CD", "监控系统"],
-    avatar:yinyantao
+    avatar: yinyantao
   },
   {
     id: 5,
@@ -156,7 +138,7 @@ const members = [
     grade: "2023级",
     bio: "负责软件质量保障体系和自动化测试",
     skills: ["自动化测试", "性能测试", "Selenium", "JUnit", "质量保障"],
-    avatar:dingjunkai
+    avatar: dingjunkai
   },
   {
     id: 6,
@@ -166,7 +148,7 @@ const members = [
     grade: "2024级",
     bio: "负责人工智能方向的技术研究和应用开发",
     skills: ["Python", "机器学习", "深度学习", "NLP", "数据分析"],
-    avatar:zhangfuchen
+    avatar: zhangfuchen
   },
   {
     id: 7,
@@ -176,7 +158,7 @@ const members = [
     grade: "2024级",
     bio: "负责前端页面开发和用户体验优化",
     skills: ["Vue", "JavaScript", "CSS3", "UI设计", "响应式布局"],
-    avatar:menghaoxue
+    avatar: menghaoxue
   },
   {
     id: 8,
@@ -186,7 +168,7 @@ const members = [
     grade: "2024级",
     bio: "负责前端组件开发和性能优化",
     skills: ["React", "TypeScript", "Webpack", "前端工程化", "单元测试"],
-    avatar:sunshanqing
+    avatar: sunshanqing
   },
   {
     id: 9,
@@ -196,7 +178,7 @@ const members = [
     grade: "2024级",
     bio: "负责后端业务逻辑开发和API设计",
     skills: ["Java", "Spring Cloud", "RESTful API", "数据库设计", "缓存优化"],
-    avatar:yinyantao
+    avatar: yinyantao
   },
   {
     id: 10,

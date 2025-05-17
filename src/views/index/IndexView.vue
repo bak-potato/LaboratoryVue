@@ -4,7 +4,7 @@ import { ref } from 'vue'
 
 // 图片导入
 import tp1 from '@/assets/index/ljtc-banner.png'
-import tp2 from '@/assets/pura-x-2.jpg'
+import tp2 from '@/assets/index/zrty-banner.png'
 import ljtc from '@/assets/index/ljtc.jpeg'
 import fhxy from '@/assets/index/fhxy.png'
 import dachuang1 from '@/assets/honors/dachuangguojia.png'

@@ -13,6 +13,11 @@ const menuData = ref([
     title: '实验室风采',
     url: '/about/intro',
     id: '2'
+  },
+  {
+    title: '联系我们',
+    url: '/about/contact',
+    id: '3'
   }
 ])
 </script>

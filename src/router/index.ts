@@ -6,6 +6,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'Home',
+      meta: { title: '大学生创新创业实验室-欢迎来到我们的官网' },
       component: () => import('@/layouts/IndexLayout.vue'),
       children: [
         {
@@ -17,6 +18,7 @@ const router = createRouter({
         {
           path:'about',
           name:'about',
+          meta: { title: '大学生创新创业实验室-关于实验室' },
           component: () => import('@/layouts/AboutLayout.vue'),
           children: [
             {
@@ -24,6 +26,11 @@ const router = createRouter({
               name:'AboutIndex',
               component: () => import('@/views/about/AboutIndex.vue'),
             },
+            {
+              path:'contact',
+              name:'AboutContact',
+              component: () => import('@/views/about/AboutContact.vue'),
+            }
           ]
         },
         {
@@ -81,6 +88,13 @@ const router = createRouter({
       ],
     },
   ],
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title as string
+  }
+  next()
 })
 
 export default router
