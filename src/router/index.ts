@@ -107,6 +107,9 @@ const router = createRouter({
           path:'software/web',
           name:'SoftwareWeb',
           component: () => import('@/views/software/SoftwareWeb.vue'),
+          path:'project',
+          name:'project',
+          component: () => import('@/views/index/ProjectView.vue'),
         }
       ],
     },
