@@ -1,6 +1,37 @@
 <!-- eslint-disable vue/block-lang -->
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+
+// 添加滚动动画逻辑
+// const animatedSections = ref([])
+
+onMounted(() => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate__animated')
+        // 根据不同的区块设置不同的动画效果
+        if (entry.target.classList.contains('intro-section')) {
+          entry.target.classList.add('animate__fadeInLeft')
+        } else if (entry.target.classList.contains('features')) {
+          entry.target.classList.add('animate__fadeInUp')
+        } else if (entry.target.classList.contains('honors')) {
+          entry.target.classList.add('animate__fadeInUp')
+        } else if (entry.target.classList.contains('software-section')) {
+          entry.target.classList.add('animate__fadeInUp')
+        }
+      }
+    })
+  }, {
+    threshold: 0.2, // 当元素20%进入视口时触发
+    rootMargin: '0px 0px -50px 0px' // 底部边界提前100px触发
+  })
+
+  // 观察所有带animate-on-scroll类的区块
+  document.querySelectorAll('.animate-on-scroll').forEach(section => {
+    observer.observe(section)
+  })
+})
 
 // 图片导入
 import tp1 from '@/assets/index/ljtc-banner.png'
@@ -113,7 +144,7 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
 </script>
 <template>
   <a-config-provider :locale="zhCN">
-    <a-carousel autoplay>
+    <a-carousel autoplay class="animate__animated animate__fadeIn">
       <div>
         <img :src="tp1">
       </div>
@@ -122,17 +153,24 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
       </div>
     </a-carousel>
     <!-- 实验室简介 -->
-    <div class="section intro-section">
-      <h2 class="section-title">实验室简介</h2>
-      <a-typography>
-        <a-typography-paragraph>
-          计算机创新实验室成立于2010年，是集科研创新、项目实践、学科竞赛为一体的综合性实验平台。实验室现有指导教师12人，研究生35人，本科生研发团队80余人，配备高性能计算集群、深度学习工作站等先进设备。
-        </a-typography-paragraph>
-      </a-typography>
+    <div class="section intro-section animate-on-scroll">
+      <a-row :gutter="48" type="flex" align="middle">
+        <a-col :span="14">
+          <h2 class="section-title">实验室简介</h2>
+          <a-typography class="intro-text">
+            <a-typography-paragraph>
+              计算机创新实验室成立于2010年，是集科研创新、项目实践、学科竞赛为一体的综合性实验平台...
+            </a-typography-paragraph>
+          </a-typography>
+        </a-col>
+        <a-col :span="10">
+          <a-image :src="ljtc" class="intro-image" />
+        </a-col>
+      </a-row>
     </div>
 
     <!-- 核心项目 -->
-    <div class="section features">
+    <div class="section features animate-on-scroll">
       <h2 class="section-title">核心项目</h2>
       <a-row :gutter="[24, 24]">
         <a-col :xs="24" :sm="12" :md="8" v-for="item in projectList" :key="item.title">
@@ -171,7 +209,7 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
   </div> -->
 
     <!-- 获得荣誉 -->
-    <div class="section honors">
+    <div class="section honors animate-on-scroll">
       <h2 class="section-title">实验室荣誉</h2>
       <a-row :gutter="[24, 24]">
         <a-col :xs="24" :sm="12" :md="8" v-for="item in honorList" :key="item.title">
@@ -203,7 +241,7 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
     </div>
 
     <!-- 软著模块 -->
-    <div class="section software-section">
+    <div class="section software-section animate-on-scroll">
       <h2 class="section-title">实验室软著</h2>
       <a-row :gutter="[24, 24]">
         <a-col :xs="24" :sm="12" :md="8" v-for="item in softwareCopyright" :key="item.regNo">
@@ -224,7 +262,7 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
     </div>
 
     <!-- 加入我们 -->
-    <div class="section join-us">
+    <div class="section join-us animate-on-scroll">
       <h2 class="section-title">加入我们</h2>
       <a-row :gutter="48">
         <a-col :xs="24" :md="12">
@@ -274,6 +312,38 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
 </template>
 
 <style scoped lang="less">
+// 添加初始隐藏状态
+.animate-on-scroll {
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  // 当动画类被添加时显示
+  &.animate__animated {
+    opacity: 1;
+  }
+}
+
+// 调整现有动画持续时间
+.animate__animated {
+  --animate-duration: 0.8s;
+}
+
+// 调整实验室简介布局
+.intro-section {
+  padding: 80px 0;
+
+  .intro-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+  }
+
+  .intro-image {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
 :deep(.slick-slide) {
   position: relative;
 

@@ -1,4 +1,5 @@
 import './assets/main.less'
+import 'animate.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

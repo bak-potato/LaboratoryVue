@@ -11,7 +11,7 @@ const menuData = ref([
   },
   {
     title: '组织架构',
-    url: '',
+    url: '/organizational',
     id: '2',
     children: [
       {

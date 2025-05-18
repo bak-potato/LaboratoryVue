@@ -11,7 +11,7 @@ const menuData = ref([
   },
   {
     title: '实验室风采',
-    url: '/about/intro',
+    url: '/about/profile',
     id: '2'
   },
   {

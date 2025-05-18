@@ -34,7 +34,8 @@ const handleSubmit = () => {
             <div>
               <h3>联系方式</h3>
               <!-- <p>0537-12345678<br>王老师 17812345678 (竞赛咨询)</p> -->
-              <p>别看了，暂时没搞。<br>欢迎大家来玩。</p>
+              <!-- <p>别看了，暂时没搞。<br>欢迎大家来玩。</p> -->
+              <p>如果你想咨询的话<br>那你直接过来吧！</p>
             </div>
           </div>
         </a-col>
@@ -43,7 +44,7 @@ const handleSubmit = () => {
         <a-col :xs="24" :md="12">
           <div class="map-placeholder">
             <!-- <icon-picture /> -->
-            <span>实验室位置地图</span>
+            <span>占位div</span>
           </div>
         </a-col>
       </a-row>

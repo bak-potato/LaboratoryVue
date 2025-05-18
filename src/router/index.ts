@@ -14,6 +14,64 @@ const router = createRouter({
           name: 'index',
           component: () => import('@/views/index/IndexView.vue'),
         },
+        // 组织架构
+        {
+          path: 'organizational',
+          name: 'Organizational',
+          component: () => import('@/views/index/OrganizationalView.vue'),
+        },
+          // 软件部
+        {
+          path: 'software',
+          name: 'software',
+          component: () => import('@/views/software/SoftWare.vue'),
+        },
+        {
+          path:'software/members',
+          name:'softwaremembers',
+          component: () => import('@/views/software/SoftWareMember.vue'),
+        },
+          // 设计部
+        {
+          path:'design',
+          name:'design',
+          component: () => import('@/views/design/DesignVue.vue'),
+
+        },
+        {
+          path:'design/members',
+          name:'designmembers',
+          component: () => import('@/views/design/DesignMember.vue'),
+        },
+          // 文案部
+        {
+          path:'copywriting/members',
+          name:'copywritingmembers',
+          component: () => import('@/views/copywriting/CopyWritingMember.vue'),
+        },
+        {
+          path:'copywriting',
+          name:'copywriting',
+          component: () => import('@/views/copywriting/CopyWriting.vue'),
+        },
+          // 硬件部
+        {
+
+          path:'hardware',
+          name:'hardware',
+          component: () => import('@/views/hardware/HardwareVue.vue'),
+        },
+        {
+          path:'hardware/members',
+          name:'hardwaremembers',
+          component: () => import('@/views/hardware/HardwareMember.vue'),
+        },
+          // 创新创业部
+        {
+          path:'introduction',
+          name:'introduction',
+          component: () => import('@/views/business/BusinessVue.vue'),
+        },
         // 关于实验室
         {
           path:'about',
@@ -30,66 +88,21 @@ const router = createRouter({
               path:'contact',
               name:'AboutContact',
               component: () => import('@/views/about/AboutContact.vue'),
+            },
+            {
+              path:'profile',
+              name:'AboutProfile',
+              component: () => import('@/views/about/AboutProfile.vue'),
             }
           ]
         },
-        {
-          path: 'software',
-          name: 'software',
-          component: () => import('@/views/software/SoftWare.vue'),
-        },
-        {
-          path:'design',
-          name:'design',
-          component: () => import('@/views/design/DesignVue.vue'),
 
-        },
-        {
-          path:'design/members',
-          name:'designmembers',
-          component: () => import('@/views/design/DesignMember.vue'),
-        },
-        {
-          path:'copywriting/members',
-          name:'copywritingmembers',
-          component: () => import('@/views/copywriting/CopyWritingMember.vue'),
-        },
-        {
-          path:'copywriting',
-          name:'copywriting',
-          component: () => import('@/views/copywriting/CopyWriting.vue'),
-        },{
-
-          path:'hardware',
-          name:'hardware',
-          component: () => import('@/views/hardware/HardwareVue.vue'),
-        },
-        {
-          path:'hardware/members',
-          name:'hardwaremembers',
-          component: () => import('@/views/hardware/HardwareMember.vue'),
-        },
         // 相关成员
         {
           path: 'member',
           name: 'member',
           component: () => import('@/views/index/MemberView.vue'),
         },
-        {
-          path:'software',
-          name:'software',
-          component: () => import('@/views/software/SoftWare.vue'),
-        },
-        {
-          path:'software/members',
-          name:'softwaremembers',
-          component: () => import('@/views/software/SoftWareMember.vue'),
-        },
-        {
-          path:'introduction',
-          name:'introduction',
-          component: () => import('@/views/business/BusinessVue.vue'),
-        }
       ],
     },
   ],
