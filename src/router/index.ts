@@ -96,13 +96,13 @@ const router = createRouter({
             }
           ]
         },
-
         // 相关成员
         {
           path: 'member',
           name: 'member',
           component: () => import('@/views/index/MemberView.vue'),
         },
+        // 项目
         {
           path:'software/web',
           name:'SoftwareWeb',

@@ -133,7 +133,7 @@ const menuData = ref([
   },
   {
     title: '项目',
-    url: '',
+    url: '/project',
     id: '4',
     children: [
       {
@@ -143,12 +143,12 @@ const menuData = ref([
         children: [
           {
             title: '临界拓池',
-            url: '/ljtc',
+            url: '/project/ljtc',
             id: '4-1-1'
           },
           {
             title: '智润田园',
-            url: '/zrty',
+            url: '/project/zrty',
             id: '4-1-2'
           }
         ]
@@ -160,12 +160,12 @@ const menuData = ref([
         children: [
           {
             title: '临界拓池',
-            url: '/ljtc',
+            url: '/project/ljtc',
             id: '4-2-1'
           },
           {
             title: '风花雪月',
-            url: '/fhxy',
+            url: '/project/fhxy',
             id: '4-2-2'
           }
         ]
@@ -177,34 +177,64 @@ const menuData = ref([
         children: [
           {
             title: '临界拓池',
-            url: '/ljtc',
+            url: '/project/ljtc',
             id: '4-3-1'
           },
           {
             title: '风花雪月',
-            url: '/fhxy',
+            url: '/project/fhxy',
             id: '4-3-2'
           },
           {
             title: '智润田园',
-            url: '/zrty',
+            url: '/project/zrty',
             id: '4-3-3'
           },
           {
             title: '星海韵梦',
-            url: '/xhym',
+            url: '/project/xhym',
             id: '4-3-4'
           },
           {
             title: '智能题站',
-            url: '/zrty',
+            url: '/project/zrty',
             id: '4-3-5'
           },
           {
             title: '推星予瞳',
-            url: '/txyt',
+            url: '/project/txyt',
             id: '4-3-6'
           },
+          {
+            title: '智图分析',
+            url: '/project/ztfx',
+            id: '4-3-7'
+          },
+          {
+            title: '调星破影',
+            url: '/project/dxpy',
+            id: '4-3-8'
+          },
+          {
+            title: '慧流立方体',
+            url: '/project/hldft',
+            id: '4-3-9'
+          },
+          {
+            title: '数据银河',
+            url: '/project/sjyh',
+            id: '4-3-10'
+          },
+          {
+            title: '低码未来',
+            url: '/project/dmwl',
+            id: '4-3-11'
+          },
+          {
+            title: '代码神器',
+            url: '/project/dmsq',
+            id: '4-3-12'
+          }
         ]
       }
     ]

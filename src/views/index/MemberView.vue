@@ -1,6 +1,32 @@
 <!-- eslint-disable vue/block-lang -->
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+
+// 添加滚动动画逻辑
+onMounted(() => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate__animated')
+        // 根据区块类型应用不同动画
+        if (entry.target.classList.contains('teacher-section')) {
+          entry.target.classList.add('animate__fadeInLeft')
+        } else {
+          entry.target.classList.add('animate__fadeInUp')
+        }
+      }
+    })
+  }, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  })
+
+  // 观察所有带 animate-on-scroll 类的区块
+  document.querySelectorAll('.animate-on-scroll').forEach(section => {
+    observer.observe(section)
+  })
+})
+
 // 国际化
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
 import tp1 from '@/assets/pura-x-1.jpg'
@@ -116,7 +142,7 @@ const leaders = ref([
 <template>
   <a-config-provider :locale="zhCN">
     <!-- banner图 -->
-    <div>
+    <div class="animate__fadeIn animate__animated">
       <a-carousel autoplay>
         <div>
           <img :src="tdcybanner" style="object-fit: cover;" />
@@ -126,83 +152,103 @@ const leaders = ref([
 
     <div class="member-container">
       <!-- 指导老师 -->
-      <a-typography-title :level="2" class="section-title theme-teacher">
-        <solution-outlined class="title-icon" />指导老师
-      </a-typography-title>
-      <a-row :gutter="[24, 32]" justify="center">
-        <a-col :xs="24" :sm="12" :md="10" :lg="8" v-for="teacher in teachers" :key="teacher.name">
-          <a-card hoverable class="member-card teacher-card">
-            <template #cover>
-              <a-image :src="teacher.avatar" height="400px" :preview="false" />
-            </template>
-            <a-card-meta :title="teacher.name">
-              <template #description>
-                <div class="member-info">
-                  <a-tag color="blue" class="position-tag">{{ teacher.position }}</a-tag>
-                  <a-typography-paragraph class="member-desc">
-                    {{ teacher.description }}
-                  </a-typography-paragraph>
-                </div>
+      <div class="animate-on-scroll teacher-section">
+        <a-typography-title :level="2" class="section-title theme-teacher">
+          <solution-outlined class="title-icon" />指导老师
+        </a-typography-title>
+        <a-row :gutter="[24, 32]" justify="center">
+          <a-col :xs="24" :sm="12" :md="10" :lg="8" v-for="teacher in teachers" :key="teacher.name">
+            <a-card hoverable class="member-card teacher-card">
+              <template #cover>
+                <a-image :src="teacher.avatar" height="400px" :preview="false" />
               </template>
-            </a-card-meta>
-          </a-card>
-        </a-col>
-      </a-row>
+              <a-card-meta :title="teacher.name">
+                <template #description>
+                  <div class="member-info">
+                    <a-tag color="blue" class="position-tag">{{ teacher.position }}</a-tag>
+                    <a-typography-paragraph class="member-desc">
+                      {{ teacher.description }}
+                    </a-typography-paragraph>
+                  </div>
+                </template>
+              </a-card-meta>
+            </a-card>
+          </a-col>
+        </a-row>
+      </div>
 
       <!-- 领导人 -->
-      <a-typography-title :level="2" class="section-title theme-leader">
-        <user-outlined class="title-icon" />领导人
-      </a-typography-title>
-      <a-row :gutter="[24, 32]" justify="center">
-        <a-col :xs="24" :sm="12" :md="8" :lg="6" v-for="leader in leaders" :key="leader.name">
-          <a-card hoverable class="member-card leader-card">
-            <template #cover>
-              <a-image :src="leader.avatar" height="300px" :preview="false" />
-            </template>
-            <a-card-meta :title="leader.name">
-              <template #description>
-                <div class="member-info">
-                  <a-tag color="cyan" class="position-tag">{{ leader.position }}</a-tag>
-                  <a-typography-paragraph class="member-desc">
-                    {{ leader.description }}
-                  </a-typography-paragraph>
-                </div>
+      <div class="animate-on-scroll">
+        <a-typography-title :level="2" class="section-title theme-leader">
+          <user-outlined class="title-icon" />领导人
+        </a-typography-title>
+        <a-row :gutter="[24, 32]" justify="center">
+          <a-col :xs="24" :sm="12" :md="8" :lg="6" v-for="leader in leaders" :key="leader.name">
+            <a-card hoverable class="member-card leader-card">
+              <template #cover>
+                <a-image :src="leader.avatar" height="300px" :preview="false" />
               </template>
-            </a-card-meta>
-          </a-card>
-        </a-col>
-      </a-row>
+              <a-card-meta :title="leader.name">
+                <template #description>
+                  <div class="member-info">
+                    <a-tag color="cyan" class="position-tag">{{ leader.position }}</a-tag>
+                    <a-typography-paragraph class="member-desc">
+                      {{ leader.description }}
+                    </a-typography-paragraph>
+                  </div>
+                </template>
+              </a-card-meta>
+            </a-card>
+          </a-col>
+        </a-row>
+      </div>
 
       <!-- 核心成员 -->
-      <a-typography-title :level="2" class="section-title theme-core">
-        <team-outlined class="title-icon" />核心成员
-      </a-typography-title>
-      <a-row :gutter="[24, 32]">
-        <a-col :xs="24" :sm="12" :md="8" :lg="6" v-for="member in members" :key="member.name">
-          <a-card hoverable class="member-card core-card">
-            <template #cover>
-              <a-image :src="member.avatar" alt="成员头像" height="300px" :preview="false" />
-            </template>
-            <a-card-meta :title="member.name">
-              <template #description>
-                <div class="member-info">
-                  <a-tag color="blue" class="position-tag">{{ member.position }}</a-tag>
-                  <a-typography-paragraph class="member-desc">
-                    {{ member.description }}
-                  </a-typography-paragraph>
-                </div>
+      <div class="animate-on-scroll">
+        <a-typography-title :level="2" class="section-title theme-core">
+          <team-outlined class="title-icon" />核心成员
+        </a-typography-title>
+        <a-row :gutter="[24, 32]">
+          <a-col :xs="24" :sm="12" :md="8" :lg="6" v-for="member in members" :key="member.name">
+            <a-card hoverable class="member-card core-card">
+              <template #cover>
+                <a-image :src="member.avatar" alt="成员头像" height="300px" :preview="false" />
               </template>
-            </a-card-meta>
-          </a-card>
-        </a-col>
-      </a-row>
-
+              <a-card-meta :title="member.name">
+                <template #description>
+                  <div class="member-info">
+                    <a-tag color="blue" class="position-tag">{{ member.position }}</a-tag>
+                    <a-typography-paragraph class="member-desc">
+                      {{ member.description }}
+                    </a-typography-paragraph>
+                  </div>
+                </template>
+              </a-card-meta>
+            </a-card>
+          </a-col>
+        </a-row>
+      </div>
 
     </div>
   </a-config-provider>
 </template>
 
 <style scoped lang="less">
+// 添加动画基础样式
+.animate-on-scroll {
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  &.animate__animated {
+    opacity: 1;
+  }
+}
+
+// 调整动画持续时间
+.animate__animated {
+  --animate-duration: 0.8s;
+}
+
 // banner
 :deep(.slick-slide) {
   img {
@@ -244,6 +290,14 @@ const leaders = ref([
   padding: 40px 24px;
   max-width: 1200px;
   margin: 0 auto;
+
+  >div {
+    margin-bottom: 64px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .section-title {
@@ -303,6 +357,11 @@ const leaders = ref([
 }
 
 // 教师卡片特殊样式
+// 教师区块特殊动画延迟
+.teacher-section {
+  animation-delay: 0.2s;
+}
+
 :where(.ant-col-md-10) .member-card {
   :deep(.ant-card-meta) {
     padding: 20px;
