@@ -62,12 +62,15 @@ import { ref, computed } from 'vue'
 import zhangyang from "@/assets/members/张洋.png"
 import xuzhihao from "@/assets/members/许致豪.png"
 import songhongle from "@/assets/members/宋洪乐.jpg"
+import menghaoxue from "@/assets/members/孟皓雪.jpg"
+import sunshanqing from "@/assets/members/山鸡.jpg"
 import yangyuanyi from "@/assets/members/杨远毅.png"
 import yinyantao from "@/assets/members/尹衍涛.jpg"
 import dingjunkai from "@/assets/members/丁俊凯.png"
+import smh from "@/assets/members/申明辉.jpg"
+
 import zhangfuchen from "@/assets/members/张阜辰.jpg"
-import menghaoxue from "@/assets/members/孟皓雪.jpg"
-import sunshanqing from "@/assets/members/山鸡.jpg"
+
 // import shenminghui from "@/assets/members/申明辉.png"
 const groups = [
   { name: "后端组", color: "#3498db" },
@@ -178,27 +181,7 @@ const members = [
     grade: "2024级",
     bio: "负责后端业务逻辑开发和API设计",
     skills: ["Java", "Spring Cloud", "RESTful API", "数据库设计", "缓存优化"],
-    avatar: yinyantao
-  },
-  {
-    id: 10,
-    name: "王雨晴",
-    team: "测试组",
-    position: "测试组成员",
-    grade: "2024级",
-    bio: "负责测试用例设计和执行",
-    skills: ["功能测试", "接口测试", "Postman", "测试报告", "缺陷管理"],
-    avatar: "@/assets/members/张洋.pngpg"
-  },
-  {
-    id: 11,
-    name: "李思远",
-    team: "AI组",
-    position: "AI组成员",
-    grade: "2024级",
-    bio: "负责机器学习模型开发和调优",
-    skills: ["Python", "TensorFlow", "数据分析", "模型训练", "特征工程"],
-    avatar: "@/assets/members/张洋.png"
+    avatar: smh
   }
 ]
 
