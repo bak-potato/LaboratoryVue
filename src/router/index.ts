@@ -31,6 +31,27 @@ const router = createRouter({
           name:'softwaremembers',
           component: () => import('@/views/software/SoftWareMember.vue'),
         },
+        {
+          path:'software/web',
+          name:'SoftwareWeb',
+          component: () => import('@/views/software/SoftwareWeb.vue'),
+        }
+        ,
+        {
+          path: 'software/ops',
+          name: 'softwareops',
+          component: () => import('@/views/software/SoftwareOps.vue'),
+        },
+        {
+          path: 'software/test',
+          name: 'softwaretest',
+          component: () => import('@/views/software/SoftwareTest.vue'),
+        },
+        {
+          path: 'software/ai',
+          name: 'softwareai',
+          component: () => import('@/views/software/SoftwareAI.vue'),
+        },
             //前端
         {
           path:'software/web',
@@ -110,25 +131,6 @@ const router = createRouter({
         },
         // 项目
         {
-          path:'software/web',
-          name:'SoftwareWeb',
-          component: () => import('@/views/software/SoftwareWeb.vue'),
-        }
-        ,
-        {
-          path: 'software/ops',
-          name: 'softwareops',
-          component: () => import('@/views/software/SoftwareOps.vue'),
-        },
-        {
-          path: 'software/test',
-          name: 'softwaretest',
-          component: () => import('@/views/software/SoftwareTest.vue'),
-        },
-        {
-          path: 'software/ai',
-          name: 'softwareai',
-          component: () => import('@/views/software/SoftwareAI.vue'),
           path:'project',
           name:'project',
           component: () => import('@/views/index/ProjectView.vue'),
