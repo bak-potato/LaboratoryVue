@@ -296,6 +296,7 @@ const friendsLinks = ref([
 <style scoped lang="less">
 .layout {
   min-height: 100vh;
+  overflow: hidden;
 
   :deep(.slick-track) {
     height: auto;

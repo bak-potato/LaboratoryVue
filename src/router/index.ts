@@ -31,6 +31,12 @@ const router = createRouter({
           name:'softwaremembers',
           component: () => import('@/views/software/SoftWareMember.vue'),
         },
+            //前端
+        {
+          path:'software/web',
+          name:'SoftwareWeb',
+          component: () => import('@/views/software/SoftwareWeb.vue'),
+        },
           // 设计部
         {
           path:'design',
@@ -123,6 +129,9 @@ const router = createRouter({
           path: 'software/ai',
           name: 'softwareai',
           component: () => import('@/views/software/SoftwareAI.vue'),
+          path:'project',
+          name:'project',
+          component: () => import('@/views/index/ProjectView.vue'),
         }
       ],
     },

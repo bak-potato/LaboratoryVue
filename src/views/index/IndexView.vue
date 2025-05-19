@@ -24,7 +24,7 @@ onMounted(() => {
     })
   }, {
     threshold: 0.2, // 当元素20%进入视口时触发
-    rootMargin: '0px 0px -50px 0px' // 底部边界提前100px触发
+    rootMargin: '0px 0px -100px 0px' // 底部边界提前100px触发
   })
 
   // 观察所有带animate-on-scroll类的区块
@@ -59,6 +59,14 @@ const newsList = ref([
   { title: '实验室在CVPR 2023发表最新研究成果', date: '2023-08-20' },
   { title: '荣获全国大学生信息安全竞赛一等奖', date: '2023-07-15' },
   { title: '校企合作项目「智能医疗系统」正式上线', date: '2023-06-10' }
+])
+
+// 实验室统计
+const stats = ref([
+  { label: '建设项目', value: '50+' },
+  { label: '软著专利', value: '30+' },
+  { label: '竞赛奖项', value: '20+' },
+  { label: '在读成员', value: '100+' }
 ])
 
 const honorList = ref([
@@ -102,7 +110,7 @@ const honorTextList = ref([
 
 const softwareCopyright = ref([
   {
-    name: '基于Netty框架的的网络连接设计系统',
+    name: '基于Netty框架的的网络s连接设计系统',
     regNo: '2025SR0143561',
     image: rz1
   },
@@ -207,6 +215,16 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
       </template>
     </a-list>
   </div> -->
+
+    <!-- 统计数字 -->
+    <section class="stats-section animate__zoomIn animate-on-scroll">
+      <div class="container stats-wrapper">
+        <div v-for="stat in stats" :key="stat.label" class="stat-item">
+          <div class="stat-value">{{ stat.value }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+      </div>
+    </section>
 
     <!-- 获得荣誉 -->
     <div class="section honors animate-on-scroll">
@@ -444,6 +462,41 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
         box-shadow: 0 4px 10px rgba(24, 144, 255, 0.3);
       }
     }
+  }
+}
+
+// 统计数字
+.stats-section {
+  background: #fafafa;
+  padding: 48px 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .stats-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    text-align: center;
+    margin: 16px;
+  }
+
+  .stat-value {
+    font-size: 40px;
+    font-weight: bold;
+    color: #1890ff;
+  }
+
+  .stat-label {
+    margin-top: 8px;
+    font-size: 16px;
+    color: #333;
   }
 }
 
