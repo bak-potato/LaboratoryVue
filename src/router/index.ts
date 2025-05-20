@@ -134,7 +134,12 @@ const router = createRouter({
           path:'project',
           name:'project',
           component: () => import('@/views/index/ProjectView.vue'),
-        }
+        },
+        {
+          path: 'introduction/members',
+          name: 'introductionmembers',
+          component: () => import('@/views/software/IntroductionMembers.vue'),
+        },
       ],
     },
   ],
