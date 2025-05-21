@@ -224,28 +224,13 @@
               </a-tag>
             </a-space>
           </template>
-          <template #action="{ record }">
-            <a-button type="link" size="small" @click="viewProjectDetails(record)">
-              查看详情
-            </a-button>
-          </template>
+
         </a-table>
       </div>
     </a-layout-content>
 
     <!-- 页脚 -->
-    <a-layout-footer class="footer">
-      <div class="footer-content">
-        <div class="footer-links">
-          <a href="#" class="footer-link">关于我们</a>
-          <a href="#" class="footer-link">联系方式</a>
-          <a href="#" class="footer-link">加入团队</a>
-        </div>
-        <div class="footer-copyright">
-          实验室前端组 ©2023-{{ new Date().getFullYear() }} - 使用 Vue3 + Ant Design Vue 构建
-        </div>
-      </div>
-    </a-layout-footer>
+
   </a-layout>
 </template>
 <!-- eslint-disable vue/block-lang -->
@@ -253,6 +238,11 @@
 <script setup>
 import { ref, computed } from 'vue'
 import dayjs from 'dayjs'
+import shl from '@/assets/members/宋洪乐.jpg'
+import xhl from '@/assets/members/lululu.jpg'
+import xzh from '@/assets/members/许致豪.png'
+import mhsx from '@/assets/members/孟皓雪.jpg'
+import xmsq from '@/assets/members/山鸡.jpg'
 import {
   CodeOutlined,
   CalendarOutlined,
@@ -276,7 +266,7 @@ const teamMembers = ref([
     name: '宋洪乐',
     role: '前端负责人',
     bio: '10年前端开发经验，精通Vue和React生态',
-    avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
+    avatar: shl,
     skills: ['Vue3', 'React', 'TypeScript', '架构设计'],
     joinDate: '2020-05-10'
   },
@@ -285,7 +275,7 @@ const teamMembers = ref([
     name: '褚馨璐',
     role: 'UI开发专家',
     bio: '专注用户体验与界面设计，CSS魔法师',
-    avatar: 'https://randomuser.me/api/portraits/women/2.jpg',
+    avatar: xhl,
     skills: ['CSS3', 'Less/Sass', 'UI设计', '动效开发'],
     joinDate: '2021-03-15'
   },
@@ -294,7 +284,7 @@ const teamMembers = ref([
     name: '许致豪',
     role: '全栈开发',
     bio: '前后端通吃，DevOps实践者',
-    avatar: 'https://randomuser.me/api/portraits/men/3.jpg',
+    avatar: xzh,
     skills: ['Vue3', 'Node.js', 'Docker', '微服务'],
     joinDate: '2019-11-20'
   },
@@ -303,7 +293,7 @@ const teamMembers = ref([
     name: '孟皓雪',
     role: '前端开发',
     bio: '性能优化专家，前端工程化实践者',
-    avatar: 'https://randomuser.me/api/portraits/women/4.jpg',
+    avatar: mhsx,
     skills: ['JavaScript', 'Webpack', '性能优化', 'CI/CD'],
     joinDate: '2022-01-15'
   },
@@ -312,7 +302,7 @@ const teamMembers = ref([
     name: '孙山清',
     role: '移动端开发',
     bio: '跨平台应用开发，React Native专家',
-    avatar: 'https://randomuser.me/api/portraits/men/5.jpg',
+    avatar: xmsq,
     skills: ['React Native', 'Flutter', 'Hybrid App', 'PWA'],
     joinDate: '2021-07-22'
   }
@@ -403,7 +393,7 @@ const projects = ref([
     status: '规划中',
     techStack: ['Vue3', 'Vant'],
     description: '实验室移动端门户，适配各种移动设备',
-    progress: 0,
+    progress: 100,
     startDate: '2024-07-01',
     endDate: '2024-09-30'
   },
@@ -412,7 +402,7 @@ const projects = ref([
     status: '进行中',
     techStack: ['React', 'TypeScript', 'Ant Design'],
     description: '实验室设备实时监控与预警系统',
-    progress: 30,
+    progress: 100,
     startDate: '2024-03-01',
     endDate: '2024-08-31'
   },
@@ -421,7 +411,7 @@ const projects = ref([
     status: '规划中',
     techStack: ['Next.js', 'Tailwind CSS'],
     description: '实验室知识管理与分享平台',
-    progress: 0,
+    progress: 100,
     startDate: '2024-10-01',
     endDate: '2025-01-31'
   }
@@ -455,12 +445,6 @@ const projectColumns = ref([
     key: 'progress',
     width: '15%',
     slots: { customRender: 'progress' }
-  },
-  {
-    title: '操作',
-    key: 'action',
-    width: '15%',
-    slots: { customRender: 'action' },
   }
 ])
 
@@ -483,10 +467,7 @@ const getStatusColor = (status) => {
   return map[status] || 'gray'
 }
 
-const viewProjectDetails = (project) => {
-  // 这里可以添加查看项目详情的逻辑
-  console.log('查看项目详情:', project)
-}
+
 </script>
 
 <style scoped>
@@ -530,6 +511,7 @@ const viewProjectDetails = (project) => {
 }
 
 .intro-text {
+  text-indent: 2rem;
   font-size: 1.1rem;
   color: #34495e;
   line-height: 1.6;
@@ -572,17 +554,18 @@ const viewProjectDetails = (project) => {
   justify-content: center;
   margin-top: 24px;
 }
-
 .action-btn {
   min-width: 180px;
   height: 48px;
+  margin-left: 10px;
+  margin-right: 10px;
   font-size: 1.1rem;
   border-radius: 8px;
 }
-
 /* 技术卡片样式 */
 .tech-card {
   border-radius: 12px;
+  margin-top: 20px;
   height: 100%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
@@ -627,6 +610,8 @@ const viewProjectDetails = (project) => {
 
 /* 部门简介卡片样式 */
 .intro-card {
+  margin-top: 20px;
+
   border-radius: 12px;
   height: 100%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -830,10 +815,11 @@ const viewProjectDetails = (project) => {
 
 /* 团队成员页面样式 */
 .team-view {
+  margin-top: 20px;
   padding: 0 16px;
 }
-
 .page-header {
+  margin-top: 20px;
   background-color: #fff;
   padding: 16px 24px;
   margin: -20px -20px 20px;

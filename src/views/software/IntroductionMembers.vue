@@ -4,7 +4,6 @@
       <h1>计算机实验室创新创业部</h1>
       <p>汇聚创新思维，探索科技未来</p>
     </a-layout-header>
-
     <a-layout-content class="content">
       <a-tabs v-model:activeKey="activeTab" centered>
         <a-tab-pane key="all" tab="全体成员"></a-tab-pane>
@@ -249,13 +248,11 @@ const sendEmail = (email) => {
   font-size: 13px;
   color: #666;
 }
-
 .footer {
   text-align: center;
   background-color: #f0f2f5;
   padding: 16px 0;
 }
-
 @media (max-width: 768px) {
   .content {
     padding: 20px;

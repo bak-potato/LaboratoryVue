@@ -29,7 +29,6 @@ onMounted(() => {
 
 // 国际化
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
-import tp1 from '@/assets/pura-x-1.jpg'
 import tdcybanner from '@/assets/members/tdry-banner.png'
 // 指导老师头像
 import dys from '@/assets/members/杜永生.png'

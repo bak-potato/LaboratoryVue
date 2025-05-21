@@ -69,43 +69,7 @@
         </a-row>
       </div>
 
-      <!-- 联系我们 - 增加表单 -->
-      <a-card class="section-card contact-card" title="联系我们">
-        <a-row :gutter="24">
-          <a-col :span="12">
-            <div class="contact-info">
-              <h3><a-icon type="environment" /> 地址</h3>
-              <p>XX大学XX校区实验楼A座101室</p>
 
-              <h3><a-icon type="phone" /> 电话</h3>
-              <p>010-12345678</p>
-
-              <h3><a-icon type="mail" /> 邮箱</h3>
-              <p>lab-support@university.edu</p>
-
-              <h3><a-icon type="clock-circle" /> 工作时间</h3>
-              <p>周一至周五: 8:30 - 17:30</p>
-            </div>
-          </a-col>
-          <a-col :span="12">
-            <a-form class="contact-form">
-              <a-form-item label="姓名">
-                <a-input placeholder="请输入您的姓名" />
-              </a-form-item>
-              <a-form-item label="邮箱">
-                <a-input placeholder="请输入您的邮箱" />
-              </a-form-item>
-              <a-form-item label="电话">
-                <a-input placeholder="请输入您的电话" />
-              </a-form-item>
-              <a-form-item label="留言内容">
-                <a-textarea :rows="4" placeholder="请输入您的留言内容" />
-              </a-form-item>
-              <a-button type="primary" block>提交留言</a-button>
-            </a-form>
-          </a-col>
-        </a-row>
-      </a-card>
     </a-layout-content>
 
 

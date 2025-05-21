@@ -89,6 +89,11 @@ const router = createRouter({
           component: () => import('@/views/hardware/HardwareVue.vue'),
         },
         {
+          path:'software/backend',
+          name:'SoftWarebackend',
+          component: () => import('@/views/software/SoftWarebackend.vue'),
+        },
+        {
           path:'hardware/members',
           name:'hardwaremembers',
           component: () => import('@/views/hardware/HardwareMember.vue'),
