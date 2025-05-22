@@ -31,32 +31,35 @@ const router = createRouter({
           name:'softwaremembers',
           component: () => import('@/views/software/SoftWareMember.vue'),
         },
-        {
-          path:'software/web',
-          name:'SoftwareWeb',
-          component: () => import('@/views/software/SoftwareWeb.vue'),
-        }
-        ,
-        {
-          path: 'software/ops',
-          name: 'softwareops',
-          component: () => import('@/views/software/SoftwareOps.vue'),
-        },
-        {
-          path: 'software/test',
-          name: 'softwaretest',
-          component: () => import('@/views/software/SoftwareTest.vue'),
-        },
-        {
-          path: 'software/ai',
-          name: 'softwareai',
-          component: () => import('@/views/software/SoftwareAI.vue'),
-        },
             //前端
         {
           path:'software/web',
           name:'SoftwareWeb',
           component: () => import('@/views/software/SoftwareWeb.vue'),
+        },
+            //运维
+        {
+          path: 'software/ops',
+          name: 'softwareops',
+          component: () => import('@/views/software/SoftwareOps.vue'),
+        },
+           //测试
+        {
+          path: 'software/test',
+          name: 'softwaretest',
+          component: () => import('@/views/software/SoftwareTest.vue'),
+        },
+            //AI
+        {
+          path: 'software/ai',
+          name: 'softwareai',
+          component: () => import('@/views/software/SoftwareAI.vue'),
+        },
+            //后端
+        {
+          path:'software/backend',
+          name:'SoftWarebackend',
+          component: () => import('@/views/software/SoftWarebackend.vue'),
         },
           // 设计部
         {
@@ -89,11 +92,6 @@ const router = createRouter({
           component: () => import('@/views/hardware/HardwareVue.vue'),
         },
         {
-          path:'software/backend',
-          name:'SoftWarebackend',
-          component: () => import('@/views/software/SoftWarebackend.vue'),
-        },
-        {
           path:'hardware/members',
           name:'hardwaremembers',
           component: () => import('@/views/hardware/HardwareMember.vue'),
@@ -103,6 +101,11 @@ const router = createRouter({
           path:'introduction',
           name:'introduction',
           component: () => import('@/views/business/BusinessVue.vue'),
+        },
+        {
+          path: 'introduction/members',
+          name: 'introductionmembers',
+          component: () => import('@/views/software/IntroductionMembers.vue'),
         },
         // 关于实验室
         {
@@ -136,15 +139,23 @@ const router = createRouter({
         },
         // 项目
         {
-          path:'project',
-          name:'project',
+          path:'projects',
+          name:'projects',
           component: () => import('@/views/index/ProjectView.vue'),
         },
         {
-          path: 'introduction/members',
-          name: 'introductionmembers',
-          component: () => import('@/views/software/IntroductionMembers.vue'),
-        },
+          path:'project',
+          name:'project',
+          component: () => import('@/views/project/ProjectIndex.vue'),
+          meta: { title: '大学生创新创业实验室-项目' },
+          children: [
+            {
+              path:'ljtc',
+              name:'ljtc',
+              component: () => import('@/views/project/ProjectLjtc.vue'),
+            }
+          ]
+        }
       ],
     },
   ],

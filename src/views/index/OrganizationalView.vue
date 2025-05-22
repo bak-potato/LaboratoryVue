@@ -6,7 +6,10 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 // 跳转方法
 const navigate = (url) => {
-  if (url) router.push(url)
+  if (url)
+    window.open(router.resolve({
+      path: url,
+    }).href, '_self')
 }
 
 // 当前活跃部门
