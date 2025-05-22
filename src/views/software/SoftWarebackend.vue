@@ -112,7 +112,6 @@
 <script setup>
 import { ref } from 'vue';
 import yyy from '@/assets/members/杨远毅.png';
-import zzz from '@/assets/members/张洋.png';
 const activeTechTab = ref('1');
 
 const responsibilities = ref([
@@ -143,11 +142,6 @@ const teamMembers = ref([
     name: '杨远毅',
     role: '后端组组长',
     avatar: yyy
-  },
-  {
-    name: '张洋',
-    role: '后端组架构师',
-    avatar: zzz
   }
 ]);
 </script>

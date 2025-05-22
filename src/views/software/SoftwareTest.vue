@@ -115,43 +115,17 @@
         <div class="container">
           <h2 class="section-title text-center">核心团队</h2>
           <p class="section-description text-center">我们拥有一支经验丰富、技术精湛的专业测试团队</p>
-
           <a-row :gutter="24" class="team-grid">
             <a-col :xs="24" :sm="12" :md="6">
               <a-card class="team-card">
-                <a-image src="https://picsum.photos/seed/manager/200/200" alt="团队成员" class="team-image" />
-                <h3 class="team-name">张明</h3>
-                <p class="team-position">测试部门经理</p>
-                <p class="team-description">10年软件测试经验，曾任职于知名科技公司</p>
+
+                <img src="../../assets/members/丁俊凯.png" width="100px">
+                <h3 class="team-name">丁俊凯</h3>
+                <p class="team-position">测试部部长</p>
+                <p class="team-description">3年软件测试经验，测试项目百余项</p>
               </a-card>
             </a-col>
 
-            <a-col :xs="24" :sm="12" :md="6">
-              <a-card class="team-card">
-                <a-image src="https://picsum.photos/seed/automation/200/200" alt="团队成员" class="team-image" />
-                <h3 class="team-name">李华</h3>
-                <p class="team-position">自动化测试专家</p>
-                <p class="team-description">8年自动化测试经验，精通各类自动化测试框架</p>
-              </a-card>
-            </a-col>
-
-            <a-col :xs="24" :sm="12" :md="6">
-              <a-card class="team-card">
-                <a-image src="https://picsum.photos/seed/performance/200/200" alt="团队成员" class="team-image" />
-                <h3 class="team-name">王芳</h3>
-                <p class="team-position">性能测试专家</p>
-                <p class="team-description">7年性能测试经验，擅长高并发系统性能优化</p>
-              </a-card>
-            </a-col>
-
-            <a-col :xs="24" :sm="12" :md="6">
-              <a-card class="team-card">
-                <a-image src="https://picsum.photos/seed/security/200/200" alt="团队成员" class="team-image" />
-                <h3 class="team-name">赵强</h3>
-                <p class="team-position">安全测试专家</p>
-                <p class="team-description">9年安全测试经验，曾参与多个国家级安全项目</p>
-              </a-card>
-            </a-col>
           </a-row>
         </div>
       </section>
@@ -383,9 +357,7 @@ onMounted(() => {
 }
 
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
+display: flex;
 }
 
 .team-card {
@@ -405,6 +377,7 @@ onMounted(() => {
 .team-image {
   width: 100%;
   height: 200px;
+  background-image: url(../../assets/members/丁俊凯.png);
   object-fit: cover;
 }
 

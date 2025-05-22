@@ -51,7 +51,7 @@
           <h4>任星宇</h4>
           <p class="member-title">硬件部负责人</p>
           <p class="member-description">
-            6年硬件开发经验，主导完成30+硬件项目，擅长嵌入式系统设计与团队技术指导
+            2年硬件开发经验，主导完成30+硬件项目，擅长嵌入式系统设计与团队技术指导
           </p>
           <div class="member-skills">
             <span class="skill-tag">嵌入式开发</span>
@@ -66,7 +66,6 @@
 <!-- eslint-disable vue/block-lang -->
 
 <script setup>
-import { ref } from 'vue'
 import rxy from '@/assets/members/任星宇.png'
 
 // 核心服务数据
@@ -128,7 +127,6 @@ const services = [
 ];
 
 // 当前年份
-const currentYear = ref(new Date().getFullYear());
 </script>
 
 <style scoped>

@@ -59,7 +59,7 @@
           <h4>咸雯慧</h4>
           <p class="member-title">文案部负责人</p>
           <p class="member-description">
-            5年文案策划经验，曾主导30+大型竞赛文案创作，擅长品牌故事构建与传播策略制定
+            2年文案策划经验，曾主导20+大型竞赛文案创作，擅长品牌故事构建与传播策略制定
           </p>
           <div class="member-skills">
             <span class="skill-tag">文案策划</span>

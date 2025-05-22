@@ -25,7 +25,7 @@
             <h4>咸雯慧</h4>
             <p class="member-title">文案部负责人</p>
             <p class="member-description">
-              6年文案策划经验，曾主导30+大型竞赛文案创作，擅长品牌故事构建与传播策略制定
+              2年文案策划经验，曾主导20+大型竞赛文案创作，擅长品牌故事构建与传播策略制定
             </p>
             <div class="member-skills">
               <span class="skill-tag">文案策划</span>
@@ -46,7 +46,7 @@
             >
               <div class="avatar-container">
                 <img
-                  src="https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg"
+                  :src="member.avatar"
                   :alt="member.name + '的头像'"
                   class="member-avatar"
                 >
@@ -87,26 +87,15 @@
 
 <script setup>
 import { ref } from 'vue';
-
+import dxf from '@/assets/members/杜小凡.jpg'
 // 团队成员数据
 const members = [
   {
-    name: "嗄噶",
+    name: "杜小凡",
     position: "资深文案策划",
     intro: "专注竞赛文案与品牌故事创作，曾获全国大学生创意写作大赛一等奖",
-    skills: ["文案创作", "品牌故事", "创意写作"]
-  },
-  {
-    name: "王武",
-    position: "新媒体文案专家",
-    intro: "擅长社交媒体传播策略，主导过5个10万+阅读量的竞赛宣传项目",
-    skills: ["新媒体文案", "传播策略", "社交媒体"]
-  },
-  {
-    name: "赵六",
-    position: "技术文档专员",
-    intro: "精通技术文档撰写与优化，累计撰写技术文档超20万字",
-    skills: ["技术写作", "文档优化", "API文档"]
+    skills: ["文案创作", "品牌故事", "创意写作"],
+    avatar:dxf
   }
 ];
 
@@ -332,7 +321,6 @@ const currentYear = ref(new Date().getFullYear());
 
 /* 页脚 */
 .footer {
-  background-color: var(--primary-color);
   color: var(--white);
   padding: 60px 20px 30px;
   text-align: center;
@@ -355,7 +343,7 @@ const currentYear = ref(new Date().getFullYear());
 
 .contact-info p {
   margin: 10px 0;
-  color: rgba(255,255,255,0.8);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .social-links {

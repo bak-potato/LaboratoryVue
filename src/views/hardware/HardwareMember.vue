@@ -16,7 +16,7 @@
           <div class="member-card">
             <div class="avatar-container">
               <img
-                src="../../assets/20250516174736_94.png"
+                src="../../assets/members/董亚蒙.jpg"
                 alt="部长头像"
                 class="member-avatar"
               >
@@ -25,7 +25,7 @@
             <h4>董亚蒙</h4>
             <p class="member-title">设计部负责人</p>
             <p class="member-description">
-              8年设计行业经验，曾主导20+大型竞赛视觉设计，擅长品牌全案策划与团队管理
+              2年设计行业经验，曾主导20+大型竞赛视觉设计，擅长品牌全案策划与团队管理
             </p>
             <div class="member-skills">
               <span class="skill-tag">品牌设计</span>
@@ -46,7 +46,7 @@
             >
               <div class="avatar-container">
                 <img
-                  src="https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg"
+                  :src="member.avatar"
                   :alt="member.name + '的头像'"
                   class="member-avatar"
                 >
@@ -87,7 +87,8 @@
 
 <script setup>
 import { ref } from 'vue';
-
+import niuyue from '../../assets/members/牛悦.jpg';
+import zhouchaopu from '../../assets/members/周超群.jpg';
 // 团队成员数据
 
 const members = [
@@ -95,19 +96,15 @@ const members = [
     name: "牛悦",
     position: "资深视觉设计师",
     intro: "专注海报设计与插画创作，曾获全国大学生设计竞赛一等奖",
-    skills: ["海报设计", "插画", "PS精修"]
+    skills: ["海报设计", "插画", "PS精修"],
+    avatar: niuyue
   },
   {
     name: "周超群",
     position: "UI/UX设计师",
     intro: "擅长移动端交互设计，主导过5款竞赛类APP的界面设计",
-    skills: ["UI设计", "交互原型", "Figma"]
-  },
-  {
-    name: "赵六",
-    position: "视频剪辑师",
-    intro: "精通AE/PR，负责竞赛宣传片制作，累计剪辑时长超200小时",
-    skills: ["视频剪辑", "特效制作", "动态视觉"]
+    skills: ["UI设计", "交互原型", "Figma"],
+    avatar: zhouchaopu
   }
 ];
 // 核心服务数据
@@ -521,7 +518,7 @@ const currentYear = ref(new Date().getFullYear());
 
 .contact-info p {
   margin: 10px 0;
-  color: rgba(255,255,255,0.8);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .social-links {

@@ -1,12 +1,7 @@
 <template>
   <a-layout class="department-page">
     <a-layout-content class="content">
-      <!-- 轮播图 - 增加圆角和阴影 -->
-      <a-carousel arrows autoplay class="carousel">
-        <div v-for="image in carouselImages" :key="image">
-          <img :src="image" class="carousel-image" />
-        </div>
-      </a-carousel>
+
 
       <!-- 部门简介 - 增加渐变背景和图标 -->
       <a-card class="section-card intro-card" title="部门简介">
@@ -86,12 +81,7 @@ import {
   TeamOutlined,
 } from '@ant-design/icons-vue'
 
-// 轮播图图片
-const carouselImages = [
-  'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-  'https://images.unsplash.com/photo-1581094794320-8f38e0f8aefe?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
-  'https://images.unsplash.com/photo-1581094794321-84195e9f0a1f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
-]
+
 
 // 服务内容
 const services = [
