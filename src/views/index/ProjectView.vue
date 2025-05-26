@@ -47,6 +47,8 @@ const statusText = {
 // 图片导入
 import ljtc from '@/assets/index/ljtc.jpeg'
 import fhxy from '@/assets/index/fhxy.png'
+import zrty from '@/assets/index/zrty.png'
+import xhym from '@/assets/index/xhym.png'
 
 // 重点项目数据
 const projectList = ref([
@@ -59,7 +61,7 @@ const projectList = ref([
     status: 'active',
     date: '2023-2024',
     progress: 85,
-    team: ['张教授', '李博士', '王研究员'],
+    team: ['张洋', '褚馨璐', '许致豪', '孙山清', '付庆浩'],
     highlights: [
       '线程实时状态可视化',
       '自适应参数调优',
@@ -68,7 +70,7 @@ const projectList = ref([
   },
   {
     title: '智润田园',
-    image: '@/assets/index/zrty-banner.png',
+    image: zrty,
     description: '探索人工智能技术在农业领域的前沿应用，实现智慧农业数字化管理。通过传感器网络、机器学习算法优化农作物生长环境。',
     detailUrl: '/project/zrty',
     tags: ['AI应用', '农业', '物联网'],
@@ -80,22 +82,6 @@ const projectList = ref([
       '作物生长智能分析',
       '农业资源优化分配',
       '产量预测模型构建'
-    ]
-  },
-  {
-    title: '数据湖平台',
-    image: '@/assets/index/sjh-banner.png',
-    description: '企业级数据湖解决方案，实现数据统一存储、处理与分析。支持多源异构数据接入，提供完整数据治理能力。',
-    detailUrl: '/project/sjh',
-    tags: ['大数据', '数据治理', '云原生'],
-    status: 'developing',
-    date: '2024-2025',
-    progress: 40,
-    team: ['吴教授', '孙博士', '周研究员'],
-    highlights: [
-      '分布式存储架构',
-      '数据血缘追踪',
-      '自动化数据质量控制'
     ]
   },
 ])
@@ -126,30 +112,6 @@ const scientificProjects = ref([
     publications: ['Journal of Network and Systems Management'],
     patents: 1
   },
-  {
-    title: '量子计算仿真',
-    image: ljtc,
-    description: '开发高效量子计算仿真环境，支持多种量子算法验证与测试，为未来量子计算研究奠定基础。',
-    detailUrl: '/project/lzjs',
-    tags: ['量子计算', '算法研究', '高性能计算'],
-    status: 'developing',
-    date: '2024-2026',
-    progress: 30,
-    publications: ['Quantum Information Processing'],
-    patents: 0
-  },
-  {
-    title: '分布式边缘计算',
-    image: fhxy,
-    description: '研究边缘计算环境下的分布式系统协同机制，解决低延迟、高可靠性计算问题。',
-    detailUrl: '/project/fbsyj',
-    tags: ['边缘计算', '分布式系统', '网络优化'],
-    status: 'planned',
-    date: '2024-2026',
-    progress: 10,
-    publications: [],
-    patents: 0
-  }
 ])
 
 // 竞赛类项目
@@ -180,7 +142,7 @@ const competitionProjects = ref([
   },
   {
     title: '智润田园',
-    image: ljtc,
+    image: zrty,
     description: '探索人工智能技术在农业领域的前沿应用，实现智慧农业数字化管理。',
     detailUrl: '/project/zrty',
     tags: ['AI应用', '农业', '物联网'],
@@ -192,15 +154,15 @@ const competitionProjects = ref([
   },
   {
     title: '星海韵梦',
-    image: fhxy,
-    description: '基于深度学习的音乐创作辅助系统，支持智能旋律生成与风格迁移。',
+    image: xhym,
+    description: '本项目为一站式编程服务一体式编程社区，为代码实训人员提供个一站式的便车服务。',
     detailUrl: '/project/xhym',
-    tags: ['AI应用', '音乐生成', '深度学习'],
+    tags: ['社区', '一站便车失去', '123'],
     status: 'active',
     date: '2023-2025',
     progress: 60,
-    awards: ['全国人工智能创新大赛三等奖'],
-    team: ['郑教授', '冯博士', '杨研究员']
+    awards: ['中国大学生计算机设计大赛省级二等奖'],
+    team: ['张洋', '宋洪乐', '李思远', '王晓宇', '刘晨曦']
   },
   {
     title: '智能题站',
@@ -268,7 +230,7 @@ const competitionProjects = ref([
     description: '基于深度学习的图像识别与分类系统，支持多模态数据处理与分析。',
     detailUrl: '/project/sjyh',
     tags: ['大数据', '数据治理', '数据挖掘'],
-    status: 'active',
+    status: 'planned',
     date: '2023-2025',
     progress: 50,
     awards: ['全国大学生数据挑战赛二等奖'],
@@ -280,7 +242,7 @@ const competitionProjects = ref([
     description: '基于深度学习的图像识别与分类系统，支持多模态数据处理与分析。',
     detailUrl: '/project/dmwl',
     tags: ['低代码平台', '开发效率', '软件工程'],
-    status: 'developing',
+    status: 'planned',
     date: '2024-2025',
     progress: 25,
     awards: [],
@@ -292,7 +254,7 @@ const competitionProjects = ref([
     description: '基于深度学习的图像识别与分类系统，支持多模态数据处理与分析。',
     detailUrl: '/project/dmsq',
     tags: ['开发工具', '自动化测试', '代码生成'],
-    status: 'active',
+    status: 'planned',
     date: '2023-2025',
     progress: 45,
     awards: ['全国软件创新大赛三等奖'],
@@ -312,14 +274,14 @@ const statisticsData = computed(() => {
 })
 
 // 推荐项目（基于特定条件筛选）
-const recommendedProjects = computed(() => {
-  const allProjects = [...projectList.value, ...scientificProjects.value, ...competitionProjects.value]
-  // 按进度和状态排序
-  return allProjects
-    .filter(p => p.status === 'active' && p.progress > 60)
-    .sort((a, b) => b.progress - a.progress)
-    .slice(0, 3)
-})
+// const recommendedProjects = computed(() => {
+//   const allProjects = [...projectList.value, ...scientificProjects.value, ...competitionProjects.value]
+//   // 按进度和状态排序
+//   return allProjects
+//     .filter(p => p.status === 'active' && p.progress > 60)
+//     .sort((a, b) => b.progress - a.progress)
+//     .slice(0, 3)
+// })
 
 // 图片国际化（如果需要）
 import zhCN from 'ant-design-vue/es/locale/zh_CN'
@@ -383,7 +345,7 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
         </a-typography-paragraph>
 
         <a-carousel autoplay class="recommended-carousel">
-          <div v-for="project in recommendedProjects" :key="project.title" class="carousel-item">
+          <div v-for="project in projectList" :key="project.title" class="carousel-item">
             <div class="carousel-content">
               <div class="carousel-image-container">
                 <img :src="project.image" :alt="project.title" class="carousel-image" />
@@ -967,6 +929,7 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
 
 /* 项目分类容器 */
 .project-section {
+  opacity: 0;
   padding-top: 1rem;
 }
 

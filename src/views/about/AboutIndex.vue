@@ -89,7 +89,7 @@ const researchDirections = [
   },
   {
     title: '未完待续',
-    description: '接下来的开发方向，就让我们继续书写！',
+    description: '接下来的，就让我们继续书写！',
     color: 'gold',
     icon: 'more'
   }
@@ -179,7 +179,7 @@ const achievements = [
 
     <!-- 开发方向 -->
     <div class="section research">
-      <h2 class="section-title">开发方向</h2>
+      <h2 class="section-title">开发项目</h2>
       <a-timeline mode="alternate">
         <a-timeline-item v-for="item in researchDirections" :key="item.title" :color="item.color">
           <template #dot>

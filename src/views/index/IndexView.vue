@@ -105,7 +105,8 @@ const projectList = ref([
     description: '专业线程池监控系统。实时监控、动态调参、及时预警，助力系统提升性能、优化资源、增强稳定性。',
     tags: ['性能监控', '系统优化', 'Java'],
     status: '进行中',
-    team: '6人团队'
+    team: '6人团队',
+    url: '/project/ljtc'
   },
   {
     title: '智润田园',
@@ -113,7 +114,8 @@ const projectList = ref([
     description: '基于物联网和人工智能的智慧农业管理平台，实现精准培肥功能，防止肥料的浪费，提高农业效率。',
     tags: ['物联网', 'AI算法', '农业科技'],
     status: '已完成',
-    team: '4人团队'
+    team: '4人团队',
+    url: '/project/zrty'
   },
   {
     title: '风花雪月',
@@ -121,39 +123,40 @@ const projectList = ref([
     description: '集成智能监控、自动化运维、多系统管理于一体，助力企业提升运维效率与数字化转型效能。',
     tags: ['运维自动化', '系统集成', 'DevOps'],
     status: '测试中',
-    team: '5人团队'
+    team: '5人团队',
+    url: '/project/fhxy'
   },
 ])
 
 const newsList = ref([
   {
-    title: '实验室在CVPR 2024发表最新研究成果',
-    date: '2024-08-20',
-    summary: '我实验室师生团队在计算机视觉顶级会议CVPR上发表论文，研究成果获得国际认可。',
-    category: '学术成果',
-    author: '张教授团队'
+    title: '中国大学生计算机设计大赛物联网省赛答辩',
+    date: '2025-05-17',
+    summary: '实验室师生在8号楼1楼会议室进行中国大学生计算机设计大赛物联网省赛线上答辩。',
+    category: '竞赛现场',
+    author: '实验室'
   },
   {
-    title: '荣获全国大学生信息安全竞赛一等奖',
-    date: '2024-07-15',
-    summary: '实验室学生团队在全国大学生信息安全竞赛中脱颖而出，获得一等奖殊荣。',
-    category: '竞赛获奖',
-    author: '李同学等'
+    title: '中国大学生计算机设计大赛省赛答辩',
+    date: '2025-05-11',
+    summary: '实验室师生在8号楼1楼会议室进行中国大学生计算机设计大赛省赛线上答辩。',
+    category: '竞赛现场',
+    author: '实验室'
   },
   {
-    title: '校企合作项目「智能医疗系统」正式上线',
-    date: '2024-06-10',
-    summary: '与某三甲医院合作开发的智能医疗诊断系统正式投入使用，获得良好反馈。',
-    category: '项目成果',
-    author: '产学研团队'
+    title: '前往济南参观学习',
+    date: '2025-04-18',
+    summary: '实验室核心成员前往济南参观学习科技公司。',
+    category: '学习参观',
+    author: '实验室'
   },
   {
-    title: '实验室成功举办首届AI创新大赛',
-    date: '2024-05-20',
-    summary: '吸引全校200余名学生参与，展现了优秀的创新成果和技术实力。',
-    category: '活动新闻',
-    author: '组委会'
-  }
+    title: '蓝桥杯全国软件和信息技术专业人才大赛',
+    date: '2025-04-12',
+    summary: '实验室师生前往考场参加蓝桥杯全国软件和信息技术专业人才大赛。',
+    category: '竞赛现场',
+    author: '实验室'
+  },
 ])
 
 // 实验室统计
@@ -303,6 +306,11 @@ const atmosphere = ref([
     icon: '💡'
   }
 ])
+
+// 单击跳转项目详情
+const handleProjectClick = (project) => {
+  window.location.href = project
+}
 </script>
 
 <template>
@@ -317,12 +325,12 @@ const atmosphere = ref([
             <p class="carousel-subtitle">{{ item.subtitle }}</p>
             <p class="carousel-description">{{ item.description }}</p>
             <div class="carousel-actions">
-              <a-button type="primary" size="large" class="cta-button">
+              <!-- <a-button type="primary" size="large" class="cta-button">
                 了解更多
               </a-button>
               <a-button size="large" ghost class="cta-button-secondary">
                 查看项目
-              </a-button>
+              </a-button> -->
             </div>
           </div>
         </div>
@@ -405,7 +413,7 @@ const atmosphere = ref([
                 <div class="project-image-wrapper">
                   <img alt="项目封面" :src="item.image" class="project-image" />
                   <div class="project-overlay">
-                    <a-button type="primary" ghost>查看详情</a-button>
+                    <a-button type="primary" ghost @click="handleProjectClick(item.url)">查看详情</a-button>
                   </div>
                   <div class="project-status" :class="item.status">
                     {{ item.status }}
@@ -474,22 +482,21 @@ const atmosphere = ref([
           <a-col :xs="24" :lg="8">
             <div class="news-sidebar">
               <div class="sidebar-widget">
-                <h4>快速链接</h4>
+                <h4>本页快速链接</h4>
                 <ul class="quick-links">
-                  <li><a href="#">学术论文</a></li>
-                  <li><a href="#">项目成果</a></li>
-                  <li><a href="#">竞赛获奖</a></li>
-                  <li><a href="#">合作交流</a></li>
+                  <li><a href="#honors">实验室荣誉</a></li>
+                  <li><a href="#software">软件著作权</a></li>
+                  <li><a href="#join">加入我们</a></li>
                 </ul>
               </div>
-              <div class="sidebar-widget">
+              <!-- <div class="sidebar-widget">
                 <h4>联系方式</h4>
                 <div class="contact-info">
                   <p>📧 lab@university.edu</p>
                   <p>📞 +86-xxx-xxxx-xxxx</p>
                   <p>📍 科技楼A座501室</p>
                 </div>
-              </div>
+              </div> -->
             </div>
           </a-col>
         </a-row>
@@ -497,6 +504,7 @@ const atmosphere = ref([
     </div>
 
     <!-- 获得荣誉 -->
+    <a name="honors"></a>
     <div class="section honors animate-on-scroll">
       <div class="container">
         <h2 class="section-title">实验室荣誉</h2>
@@ -549,6 +557,7 @@ const atmosphere = ref([
     </div>
 
     <!-- 软著模块 -->
+    <a name="software"></a>
     <div class="section software-section animate-on-scroll">
       <div class="container">
         <h2 class="section-title">软件著作权</h2>
@@ -580,6 +589,7 @@ const atmosphere = ref([
     </div>
 
     <!-- 加入我们 -->
+    <a name="join"></a>
     <div class="section join-us animate-on-scroll">
       <div class="container">
         <h2 class="section-title">加入我们</h2>
@@ -725,9 +735,9 @@ const atmosphere = ref([
                 <a-button type="primary" size="large" class="recruit-btn">
                   立即报名
                 </a-button>
-                <a-button size="large" class="info-btn">
+                <!-- <a-button size="large" class="info-btn">
                   了解详情
-                </a-button>
+                </a-button> -->
               </div>
               <div class="contact-card">
                 <h4>联系我们</h4>

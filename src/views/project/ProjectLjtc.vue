@@ -14,14 +14,6 @@ const projectInfo = ref({
   version: 'v2.1.3'
 })
 
-// 标签页配置
-const tabItems = [
-  { key: 'details', label: '项目详情', icon: 'file-text' },
-  { key: 'team', label: '团队介绍', icon: 'team' },
-  { key: 'progress', label: '项目进展', icon: 'line-chart' },
-  { key: 'tech', label: '技术架构', icon: 'code' }
-]
-
 // 当前激活的标签页
 const activeTab = ref('details')
 
@@ -47,21 +39,21 @@ const projectDetails = ref({
 
 // 团队成员数据
 const teamMembers = ref([
-  { name: '张建国', role: '项目经理', avatar: 'https://randomuser.me/api/portraits/men/1.jpg', experience: '8年' },
-  { name: '李晓月', role: '后端架构师', avatar: 'https://randomuser.me/api/portraits/women/1.jpg', experience: '6年' },
-  { name: '王大明', role: '前端开发', avatar: 'https://randomuser.me/api/portraits/men/2.jpg', experience: '4年' },
-  { name: '陈小雨', role: 'DevOps工程师', avatar: 'https://randomuser.me/api/portraits/women/2.jpg', experience: '5年' },
-  { name: '刘志强', role: '测试工程师', avatar: 'https://randomuser.me/api/portraits/men/3.jpg', experience: '3年' }
+  { name: '张建国', role: '项目经理', avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },
+  { name: '李晓月', role: '后端架构师', avatar: 'https://randomuser.me/api/portraits/women/1.jpg' },
+  { name: '王大明', role: '前端开发', avatar: 'https://randomuser.me/api/portraits/men/2.jpg' },
+  { name: '陈小雨', role: 'DevOps工程师', avatar: 'https://randomuser.me/api/portraits/women/2.jpg' },
+  { name: '刘志强', role: '测试工程师', avatar: 'https://randomuser.me/api/portraits/men/3.jpg' }
 ])
 
-// 项目进展数据
-const milestones = ref([
-  { phase: '需求分析', status: 'completed', date: '2024-01-15', progress: 100 },
-  { phase: '系统设计', status: 'completed', date: '2024-02-28', progress: 100 },
-  { phase: '核心开发', status: 'completed', date: '2024-08-15', progress: 100 },
-  { phase: '功能测试', status: 'active', date: '2024-10-30', progress: 85 },
-  { phase: '性能优化', status: 'pending', date: '2024-11-30', progress: 30 },
-  { phase: '部署上线', status: 'pending', date: '2024-12-30', progress: 0 }
+// 项目风采数据
+const projectImages = ref([
+  '/images/project/gallery1.jpg',
+  '/images/project/gallery2.jpg',
+  '/images/project/gallery3.jpg',
+  '/images/project/gallery4.jpg',
+  '/images/project/gallery5.jpg',
+  '/images/project/gallery6.jpg'
 ])
 
 // 技术架构数据
@@ -81,7 +73,7 @@ const techArchitecture = ref({
         <div class="title-row">
           <h1 class="project-title">{{ projectInfo.title }}</h1>
           <a-tag :color="projectInfo.priority === 'high' ? 'red' : 'blue'" class="priority-tag">
-            {{ projectInfo.priority === 'high' ? '高优先级' : '普通优先级' }}
+            {{ projectInfo.priority === 'high' ? '重点项目' : '普通项目' }}
           </a-tag>
         </div>
         <p class="project-subtitle">{{ projectInfo.subtitle }}</p>
@@ -94,10 +86,10 @@ const techArchitecture = ref({
             <i class="icon">🎯</i>
             预计完成: {{ projectInfo.endDate }}
           </span>
-          <span class="meta-item">
+          <!-- <span class="meta-item">
             <i class="icon">🏷️</i>
             版本: {{ projectInfo.version }}
-          </span>
+          </span> -->
         </div>
       </div>
       <div class="project-status-section">
@@ -175,7 +167,6 @@ const techArchitecture = ref({
                   <div class="member-info">
                     <h4 class="member-name">{{ member.name }}</h4>
                     <p class="member-role">{{ member.role }}</p>
-                    <span class="member-experience">经验: {{ member.experience }}</span>
                   </div>
                 </div>
               </div>
@@ -185,7 +176,7 @@ const techArchitecture = ref({
               <h3 class="section-title">团队组织架构</h3>
               <div class="org-chart">
                 <div class="org-level">
-                  <div class="org-node manager">项目经理</div>
+                  <div class="org-node manager">负责人</div>
                 </div>
                 <div class="org-level">
                   <div class="org-node">后端架构师</div>
@@ -198,40 +189,13 @@ const techArchitecture = ref({
           </div>
         </a-tab-pane>
 
-        <!-- 项目进展 -->
-        <a-tab-pane key="progress" tab="项目进展">
+        <!-- 项目风采 -->
+        <a-tab-pane key="gallery" tab="项目风采">
           <div class="tab-content">
             <div class="content-section">
-              <h3 class="section-title">里程碑进度</h3>
-              <div class="timeline">
-                <div v-for="milestone in milestones" :key="milestone.phase" class="timeline-item"
-                  :class="milestone.status">
-                  <div class="timeline-marker"></div>
-                  <div class="timeline-content">
-                    <h4 class="milestone-phase">{{ milestone.phase }}</h4>
-                    <p class="milestone-date">{{ milestone.date }}</p>
-                    <a-progress :percent="milestone.progress" :size="'small'"
-                      :status="milestone.status === 'completed' ? 'success' : 'active'" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="content-section">
-              <h3 class="section-title">每周进度更新</h3>
-              <div class="progress-updates">
-                <div class="update-item">
-                  <div class="update-date">本周 (11/18-11/24)</div>
-                  <div class="update-content">完成核心监控模块的单元测试，修复了3个关键性能问题</div>
-                </div>
-                <div class="update-item">
-                  <div class="update-date">上周 (11/11-11/17)</div>
-                  <div class="update-content">集成Elasticsearch搜索功能，优化了数据查询性能</div>
-                </div>
-                <div class="update-item">
-                  <div class="update-date">前周 (11/04-11/10)</div>
-                  <div class="update-content">完成前端页面重构，提升了用户体验和响应速度</div>
-                </div>
+              <h3 class="section-title">项目风采</h3>
+              <div class="gallery-images">
+                <img v-for="image in projectImages" :key="image" :src="image" alt="Project Image" />
               </div>
             </div>
           </div>
@@ -597,14 +561,6 @@ const techArchitecture = ref({
       color: #1890ff;
       margin-bottom: 8px;
     }
-
-    .member-experience {
-      font-size: 12px;
-      color: #666;
-      background: #e8f4ff;
-      padding: 4px 8px;
-      border-radius: 12px;
-    }
   }
 }
 
@@ -793,6 +749,27 @@ const techArchitecture = ref({
   }
 }
 
+.gallery-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+}
+
 // 响应式调整
 @media (max-width: 768px) {
   .project-detail-container {
@@ -863,6 +840,14 @@ const techArchitecture = ref({
 
   .deployment-info {
     grid-template-columns: 1fr;
+  }
+
+  .gallery-images {
+    grid-template-columns: 1fr;
+
+    img {
+      height: 180px;
+    }
   }
 }
 </style>
