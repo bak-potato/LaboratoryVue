@@ -263,136 +263,17 @@
                   </div>
                 </li>
               </ul>
-              <button class="apply-btn" @click="showApplyModal = true">
-                立即申请
-                <i class="icon icon-arrow-right"></i>
-              </button>
+
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- 页脚区域 -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-about">
-            <h3 class="footer-logo">实验室创新创业部</h3>
-            <p class="footer-description">连接学术研究与产业应用的桥梁，培养创新精神和创业能力的平台。</p>
-            <div class="footer-social">
-              <a
-                v-for="(link, index) in socialLinks"
-                :key="index"
-                :href="link.url"
-                :title="link.name"
-              >
-                <i :class="link.icon"></i>
-              </a>
-            </div>
-          </div>
 
-          <div class="footer-links">
-            <div class="link-group" v-for="(group, index) in footerLinkGroups" :key="index">
-              <h4>{{ group.title }}</h4>
-              <ul>
-                <li v-for="(item, itemIndex) in group.links" :key="itemIndex">
-                  <a :href="item.url">{{ item.text }}</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="footer-contact">
-            <h4>联系我们</h4>
-            <ul class="contact-list">
-              <li>
-                <i class="icon icon-email"></i>
-                {{ contact.email }}
-              </li>
-              <li>
-                <i class="icon icon-phone"></i>
-                {{ contact.phone }}
-              </li>
-              <li>
-                <i class="icon icon-location"></i>
-                {{ contact.address }}
-              </li>
-            </ul>
-            <div class="newsletter">
-              <h5>订阅我们的资讯</h5>
-              <div class="newsletter-form">
-                <input type="email" placeholder="您的邮箱地址">
-                <button type="submit">
-                  <i class="icon icon-send"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <p>© {{ currentYear }} 实验室创新创业部 版权所有</p>
-          <div class="legal-links">
-            <a href="#">隐私政策</a>
-            <a href="#">使用条款</a>
-          </div>
-        </div>
-      </div>
-    </footer>
 
     <!-- 申请模态框 -->
-    <div class="modal-overlay" v-if="showApplyModal" @click.self="showApplyModal = false">
-      <div class="apply-modal">
-        <button class="modal-close" @click="showApplyModal = false">
-          <i class="icon icon-close"></i>
-        </button>
-        <h3 class="modal-title">加入申请表</h3>
-        <form @submit.prevent="submitApplication">
-          <div class="form-group">
-            <label for="name">姓名</label>
-            <input id="name" type="text" v-model="applicationForm.name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">邮箱</label>
-            <input id="email" type="email" v-model="applicationForm.email" required>
-          </div>
-          <div class="form-group">
-            <label for="phone">电话</label>
-            <input id="phone" type="tel" v-model="applicationForm.phone">
-          </div>
-          <div class="form-group">
-            <label for="position">申请岗位</label>
-            <select id="position" v-model="applicationForm.position" required>
-              <option value="">请选择</option>
-              <option
-                v-for="(position, index) in recruitmentPositions"
-                :key="index"
-                :value="position.title"
-              >
-                {{ position.title }}
-              </option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">个人陈述</label>
-            <textarea
-              id="message"
-              v-model="applicationForm.message"
-              placeholder="请简要介绍你自己以及为什么想加入我们"
-              required
-            ></textarea>
-          </div>
-          <div class="form-group">
-            <label for="resume">上传简历</label>
-            <input id="resume" type="file" @change="handleFileUpload">
-          </div>
-          <button type="submit" class="submit-btn">
-            {{ isSubmitting ? '提交中...' : '提交申请' }}
-          </button>
-        </form>
-      </div>
-    </div>
+
 
     <!-- 返回顶部按钮 -->
 
@@ -404,15 +285,12 @@
 import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
 
 // 响应式数据
-const currentYear = ref(new Date().getFullYear())
 const isSticky = ref(false)
 const activeSection = ref('about')
 const activeTab = ref('regular')
 const currentMemberIndex = ref(0)
 const selectedPosition = ref(0)
-const showApplyModal = ref(false)
 const showBackToTop = ref(false)
-const isSubmitting = ref(false)
 
 const sectionVisible = reactive({
   about: false,
@@ -647,62 +525,7 @@ const benefits = ref([
   }
 ])
 
-// 联系方式
-const contact = ref({
-  email: 'innovation@lab.edu',
-  phone: 'XXX-XXXXXXX',
-  address: 'XX大学XX实验室大楼XXX室'
-})
 
-// 社交媒体链接
-const socialLinks = ref([
-  { name: '微信公众号', url: '#', icon: 'icon icon-wechat' },
-  { name: '微博', url: '#', icon: 'icon icon-weibo' },
-  { name: '领英', url: '#', icon: 'icon icon-linkedin' },
-  { name: '哔哩哔哩', url: '#', icon: 'icon icon-bilibili' },
-  { name: '抖音', url: '#', icon: 'icon icon-douyin' }
-])
-
-// 页脚链接
-const footerLinkGroups = ref([
-  {
-    title: '快速链接',
-    links: [
-      { text: '首页', url: '#' },
-      { text: '关于我们', url: '#about' },
-      { text: '活动日历', url: '#' },
-      { text: '成功案例', url: '#' }
-    ]
-  },
-  {
-    title: '资源',
-    links: [
-      { text: '创业指南', url: '#' },
-      { text: '工具下载', url: '#' },
-      { text: '研究报告', url: '#' },
-      { text: '常见问题', url: '#' }
-    ]
-  },
-  {
-    title: '支持',
-    links: [
-      { text: '联系我们', url: '#contact' },
-      { text: '意见反馈', url: '#' },
-      { text: '加入我们', url: '#join' },
-      { text: '合作伙伴', url: '#' }
-    ]
-  }
-])
-
-// 申请表数据
-const applicationForm = reactive({
-  name: '',
-  email: '',
-  phone: '',
-  position: '',
-  message: '',
-  resume: null
-})
 
 // 方法定义
 const handleNavClick = (sectionId) => {
@@ -724,28 +547,6 @@ const nextMember = () => {
   currentMemberIndex.value = (currentMemberIndex.value + 1) % teamMembers.value.length
 }
 
-const handleFileUpload = (event) => {
-  applicationForm.resume = event.target.files[0]
-}
-
-const submitApplication = () => {
-  isSubmitting.value = true
-  // 模拟提交过程
-  setTimeout(() => {
-    isSubmitting.value = false
-    showApplyModal.value = false
-    alert('申请已提交成功！我们会尽快与您联系。')
-    // 重置表单
-    Object.assign(applicationForm, {
-      name: '',
-      email: '',
-      phone: '',
-      position: '',
-      message: '',
-      resume: null
-    })
-  }, 1500)
-}
 
 // 滚动监听
 const handleScroll = () => {
@@ -1250,7 +1051,29 @@ onUnmounted(() => {
   display: flex;
   gap: 8px;
 }
+.slider-arrow.left {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e3c72'><path d='M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+}
 
+.slider-arrow.right {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e3c72'><path d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.slider-arrow:hover {
+  background-color: #1e3c72;
+}
+
+.slider-arrow:hover.left {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'><path d='M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z'/></svg>");
+}
+
+.slider-arrow:hover.right {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'><path d='M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z'/></svg>");
+}
 .slider-dots span {
   width: 12px;
   height: 12px;

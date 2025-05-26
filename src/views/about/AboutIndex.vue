@@ -1,20 +1,17 @@
 <!-- eslint-disable vue/block-lang -->
 <script setup>
 import { ref } from 'vue'
-
 import tp1 from '@/assets/index/ljtc-banner.png'
-
 import hz2025 from '@/assets/about/hz2025.jpg'
 
 // 实验室数据
 const labData = {
-  founded: 2010,
+  founded: 2023,
   teachers: 12,
   graduates: 35,
   undergraduates: 80,
   equipment: ['高性能计算集群', '深度学习工作站', 'GPU服务器', '智能终端设备']
 }
-
 // 特色优势数据
 const features = [
   {
@@ -99,7 +96,7 @@ const researchDirections = [
 const achievements = [
   {
     title: '国家级奖项',
-    count: 15,
+    count: 5,
     icon: 'trophy'
   },
   {
@@ -162,7 +159,6 @@ const achievements = [
         </div>
       </div>
     </div>
-
     <!-- 特色优势 -->
     <div class="section features">
       <h2 class="section-title">特色优势</h2>
@@ -179,7 +175,7 @@ const achievements = [
 
     <!-- 开发方向 -->
     <div class="section research">
-      <h2 class="section-title">开发项目</h2>
+      <h2 class="section-title">实验室自主开发项目</h2>
       <a-timeline mode="alternate">
         <a-timeline-item v-for="item in researchDirections" :key="item.title" :color="item.color">
           <template #dot>
@@ -254,13 +250,11 @@ const achievements = [
       align-items: center;
       color: white;
       text-align: center;
-
       h1 {
         font-size: 2.5rem;
         margin-bottom: 1rem;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       }
-
       p {
         font-size: 1.2rem;
         opacity: 0.9;
@@ -279,7 +273,6 @@ const achievements = [
       margin-bottom: 2rem;
       padding-bottom: 1rem;
       text-align: center;
-
       &::after {
         content: '';
         position: absolute;
@@ -293,7 +286,6 @@ const achievements = [
       }
     }
   }
-
   .intro-content {
     display: flex;
     gap: 40px;
@@ -360,6 +352,7 @@ const achievements = [
   .feature-item {
     background: white;
     padding: 2rem;
+    min-height: 230px;
     border-radius: @border-radius-base;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     text-align: center;
