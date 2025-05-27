@@ -13,10 +13,19 @@ import tj225 from '@/assets/profile/2025tj2.jpg'
 
 import tp1 from '@/assets/index/ljtc-banner.png'
 
+// 导入图标
+import { 
+  TrophyOutlined, 
+  CameraOutlined, 
+  BankOutlined, 
+  TeamOutlined 
+} from '@ant-design/icons-vue'
+
 // 定义图片数据（可根据实际需求扩展）
 const photoGroups = ref([
   {
     title: '参加竞赛',
+    icon: TrophyOutlined,
     list: [
       { src: zdj1, desc: '2025年中国大学生计算机设计大赛线上答辩' },
       { src: zdj2, desc: '2025年中国大学生计算机设计大赛线上答辩' },
@@ -27,6 +36,7 @@ const photoGroups = ref([
   },
   {
     title: '活动掠影',
+    icon: CameraOutlined,
     list: [
       { src: yd25, desc: '2025年元旦实验室团建活动' },
       { src: tj225, desc: '2025年实验室团建活动' }
@@ -34,6 +44,7 @@ const photoGroups = ref([
   },
   {
     title: '参观企业',
+    icon: BankOutlined,
     list: [
       { src: tp1, desc: '2023年度最佳团队奖' },
       { src: tp1, desc: '2022年度创新奖' }
@@ -41,6 +52,7 @@ const photoGroups = ref([
   },
   {
     title: '日常场景',
+    icon: TeamOutlined,
     list: [
       { src: tp1, desc: '团队项目讨论现场' }
     ]
@@ -52,7 +64,10 @@ const photoGroups = ref([
   <div class="about-container">
     <!-- 按分类展示图片 -->
     <div v-for="group in photoGroups" :key="group.title" class="section">
-      <h2 class="section-title">{{ group.title }}</h2>
+      <h2 class="section-title">
+        <component :is="group.icon" class="section-icon" />
+        {{ group.title }}
+      </h2>
       <a-row :gutter="[24, 24]" justify="center">
         <a-col :xs="24" :sm="12" :md="8" v-for="(photo, index) in group.list" :key="index">
           <div class="photo-card">
@@ -78,8 +93,16 @@ const photoGroups = ref([
       color: #262626;
       font-size: 1.8rem;
       padding-left: 12px;
-      border-left: 4px solid #1890ff; // 关键视觉统一元素
-      margin: 0 0 30px; // 标题与内容间距
+      border-left: 4px solid #1890ff;
+      margin: 0 0 30px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .section-icon {
+        font-size: 1.6rem;
+        color: #1890ff;
+      }
     }
 
     .photo-card {

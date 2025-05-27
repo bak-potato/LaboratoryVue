@@ -19,10 +19,10 @@ onMounted(() => {
         observer.unobserve(el)
       }
     })
-  }, { threshold: 0.1, rootMargin: '0px 0px 100px 0px' })
+  }, { threshold: 0.1, rootMargin: '0px 0px 50px 0px' }) // 减少边距提高性能
 
   document.querySelectorAll('.animate-on-scroll').forEach((el, idx) => {
-    el.dataset.delay = `${idx * 100}ms`
+    el.dataset.delay = `${idx * 50}ms` // 减少动画延迟
     observer.observe(el)
   })
 })
@@ -46,6 +46,7 @@ import shl from '@/assets/members/宋洪乐.jpg'
 import fqh from '@/assets/members/付庆浩.jpg'
 import yyy from '@/assets/members/杨远毅.png'
 import djk from '@/assets/members/丁俊凯.png'
+
 // 成员数据
 const members = ref([
   {
@@ -118,7 +119,6 @@ const teachers = ref([
     position: '学院团委书记',
     description: '计算机科学与工程学院团委书记，负责实验室与学院的沟通协调，为实验室提供多方面支持，确保资源调配顺畅，推动项目报名开展。'
   },
-
 ])
 
 // 领导人数据
@@ -141,10 +141,10 @@ const leaders = ref([
 <template>
   <a-config-provider :locale="zhCN">
     <!-- banner图 -->
-    <div class="animate__animated animate__fadeIn">
+    <div class="banner-container animate__animated animate__fadeIn">
       <a-carousel autoplay>
         <div>
-          <img :src="tdcybanner" style="object-fit: cover;" />
+          <img :src="tdcybanner" class="banner-image" alt="团队banner" />
         </div>
       </a-carousel>
     </div>
@@ -155,12 +155,14 @@ const leaders = ref([
         <a-typography-title :level="2" class="section-title theme-teacher">
           <solution-outlined class="title-icon" />指导老师
         </a-typography-title>
-        <a-row :gutter="[24, 32]" justify="center">
-          <a-col :xs="24" :sm="12" :md="10" :lg="8" v-for="teacher in teachers" :key="teacher.name">
+        <a-row :gutter="[16, 24]" justify="center">
+          <a-col :xs="24" :sm="24" :md="12" :lg="8" v-for="teacher in teachers" :key="teacher.name">
             <div class="animate-on-scroll" data-type="teacher">
               <a-card hoverable class="member-card teacher-card">
                 <template #cover>
-                  <a-image :src="teacher.avatar" height="400px" :preview="false" />
+                  <div class="image-container">
+                    <a-image :src="teacher.avatar" class="member-image" :preview="false" />
+                  </div>
                 </template>
                 <a-card-meta :title="teacher.name">
                   <template #description>
@@ -183,11 +185,13 @@ const leaders = ref([
         <user-outlined class="title-icon" />领导人
       </a-typography-title>
       <div class="animate-on-scroll">
-        <a-row :gutter="[24, 32]" justify="center">
-          <a-col :xs="24" :sm="12" :md="8" :lg="6" v-for="leader in leaders" :key="leader.name">
+        <a-row :gutter="[16, 24]" justify="center">
+          <a-col :xs="24" :sm="12" :md="12" :lg="8" v-for="leader in leaders" :key="leader.name">
             <a-card hoverable class="member-card leader-card">
               <template #cover>
-                <a-image :src="leader.avatar" height="300px" :preview="false" />
+                <div class="image-container">
+                  <a-image :src="leader.avatar" class="member-image" :preview="false" />
+                </div>
               </template>
               <a-card-meta :title="leader.name">
                 <template #description>
@@ -208,12 +212,14 @@ const leaders = ref([
       <a-typography-title :level="2" class="section-title theme-core">
         <team-outlined class="title-icon" />核心成员
       </a-typography-title>
-      <a-row :gutter="[24, 32]">
+      <a-row :gutter="[16, 20]">
         <a-col :xs="24" :sm="12" :md="8" :lg="6" v-for="member in members" :key="member.name">
           <div class="animate-on-scroll">
             <a-card hoverable class="member-card core-card">
               <template #cover>
-                <a-image :src="member.avatar" alt="成员头像" height="300px" :preview="false" />
+                <div class="image-container">
+                  <a-image :src="member.avatar" alt="成员头像" class="member-image" :preview="false" />
+                </div>
               </template>
               <a-card-meta :title="member.name">
                 <template #description>
@@ -229,100 +235,234 @@ const leaders = ref([
           </div>
         </a-col>
       </a-row>
-
     </div>
   </a-config-provider>
 </template>
 
 <style scoped lang="less">
-// 添加动画基础样式
+// 添加更细致的断点控制和变量定义
+@xs-breakpoint: 480px;
+@sm-breakpoint: 576px;
+@md-breakpoint: 768px;
+@lg-breakpoint: 992px;
+@xl-breakpoint: 1200px;
+
+// 主题色变量
+@theme-teacher: #faad14;
+@theme-leader: #52c41a;
+@theme-core: #1890ff;
+
+// 动画基础样式优化
 .animate-on-scroll {
   opacity: 0;
-  transition: opacity 0.3s;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
 
   &.animate__animated {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-// 调整动画持续时间
 .animate__animated {
   --animate-duration: 0.8s;
 }
 
-// banner
-:deep(.slick-slide) {
-  img {
-    height: 60vh;
-    min-height: 400px;
-    object-fit: cover;
-    display: block;
-    width: 100%;
+// Banner 样式优化
+.banner-container {
+  width: 100%;
+  // position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+  // box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   height: 60px;
+  //   background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent);
+  // }
+
+  :deep(.slick-slide) {
+    .banner-image {
+      width: 100%;
+      height: 60vh;
+      min-height: 300px;
+      max-height: 500px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+
+      // &:hover {
+      //   transform: scale(1.02);
+      // }
+    }
   }
-}
 
-// 题目样式
-.section-title {
+  @media (max-width: @md-breakpoint) {
+    margin-bottom: 30px;
 
-  &.theme-core::after {
-    background: #1890ff;
-  }
-
-  // 蓝色
-  &.theme-teacher::after {
-    background: #faad14;
-  }
-
-  // 金色
-  &.theme-leader::after {
-    background: #52c41a;
-  }
-
-  // 绿色
-
-  .title-icon {
-    margin-right: 12px;
-    font-size: 0.9em;
-    color: inherit;
-  }
-}
-
-.member-container {
-  padding: 40px 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-
-  >div {
-    margin-bottom: 64px;
-
-    &:last-child {
-      margin-bottom: 0;
+    :deep(.slick-slide) {
+      .banner-image {
+        height: 40vh;
+        min-height: 250px;
+      }
     }
   }
 }
 
-.section-title {
-  text-align: center;
-  margin-bottom: 48px;
+// 主容器优化
+.member-container {
+  width: 92%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+  // background: linear-gradient(to bottom, #fff, #f8f9fa);
+  border-radius: 20px;
+  // box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
 
-  &::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: #1890ff;
-    margin: 16px auto 0;
+  @media (max-width: @md-breakpoint) {
+    width: 96%;
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  @media (max-width: @sm-breakpoint) {
+    width: 98%;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  >div {
+    margin-bottom: 60px;
+
+    &:last-child {
+      margin-bottom: 20px;
+    }
   }
 }
 
-// 成员卡片样式及基本布局
+// 标题样式优化
+.section-title {
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 48px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 60px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  &:hover::after {
+    width: 100px;
+  }
+
+  &.theme-core::after {
+    background: @theme-core;
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.3);
+  }
+
+  &.theme-teacher::after {
+    background: @theme-teacher;
+    box-shadow: 0 2px 8px rgba(250, 173, 20, 0.3);
+  }
+
+  &.theme-leader::after {
+    background: @theme-leader;
+    box-shadow: 0 2px 8px rgba(82, 196, 26, 0.3);
+  }
+
+  .title-icon {
+    margin-right: 12px;
+    font-size: 0.9em;
+    vertical-align: middle;
+  }
+
+  @media (max-width: @xs-breakpoint) {
+    font-size: 24px;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+
+    &::after {
+      width: 40px;
+      height: 3px;
+    }
+  }
+}
+
+// 图片容器优化
+.image-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #f5f5f5;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 70%, rgba(0, 0, 0, 0.1));
+    z-index: 1;
+    transition: opacity 0.3s;
+  }
+
+  .member-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(0.95);
+
+    &:hover {
+      transform: scale(1.05);
+      filter: brightness(1);
+    }
+  }
+
+  @media (max-width: @xs-breakpoint) {
+    .member-image {
+      height: 250px;
+    }
+  }
+}
+
+// 成员卡片样式优化
 .member-card {
+  height: 100%;
   margin-bottom: 30px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #fff;
+  border: none;
 
   &:hover {
     transform: translateY(-8px);
-    box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  :deep(.ant-card-body) {
+    padding: 20px;
   }
 
   :deep(.ant-card-meta-title) {
@@ -330,103 +470,172 @@ const leaders = ref([
     font-weight: 600;
     text-align: center;
     margin-bottom: 12px;
+    line-height: 1.4;
+    transition: color 0.3s;
   }
 
   .position-tag {
     margin: 0 auto 12px;
     display: block;
     width: fit-content;
+    font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    transition: all 0.3s;
   }
 
   .member-desc {
-    color: #666;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.8;
+    color: rgba(0, 0, 0, 0.75);
+    margin: 12px 0;
     text-align: justify;
   }
-}
 
-.compact-card {
-  :deep(.ant-card-meta-title) {
-    font-size: 16px !important;
-  }
+  @media (max-width: @xs-breakpoint) {
+    margin-bottom: 20px;
+    border-radius: 12px;
 
-  .member-desc {
-    font-size: 13px;
-    line-height: 1.6;
+    :deep(.ant-card-body) {
+      padding: 16px;
+    }
+
+    :deep(.ant-card-meta-title) {
+      font-size: 16px;
+    }
+
+    .position-tag {
+      font-size: 12px;
+      padding: 3px 10px;
+    }
+
+    .member-desc {
+      font-size: 13px;
+      line-height: 1.6;
+    }
   }
 }
 
 // 教师卡片特殊样式
-// 教师区块特殊动画延迟
-.teacher-section {
-  animation-delay: 0.2s;
-}
-
-:where(.ant-col-md-10) .member-card {
-  :deep(.ant-card-meta) {
-    padding: 20px;
-
-    &-title {
-      font-size: 20px;
-    }
-  }
-
-  .position-tag {
-    font-size: 15px;
-    padding: 4px 12px;
-  }
-}
-
-.leader-row {
-  margin-top: 32px;
-}
-
-// 指导老师卡片样式
 .teacher-card {
-  border: 2px solid #fffbe6;
-  background: linear-gradient(45deg, #fffdf8, #fff);
+  background: linear-gradient(135deg, #fff9f0, #fff);
+  border: 2px solid rgba(250, 173, 20, 0.1);
 
-  :deep(.ant-image) {
-    height: 400px !important;
+  .image-container .member-image {
+    height: 340px;
   }
 
-  :deep(.ant-card-meta) {
-    padding: 24px;
-
-    &-title {
-      font-size: 22px !important;
-      color: #faad14;
-    }
+  :deep(.ant-card-meta-title) {
+    color: @theme-teacher;
+    font-size: 20px;
   }
 
   .position-tag {
     background: #fff7e6;
-    border-color: #ffe58f;
-  }
-}
-
-// 学生领导卡片样式
-.leader-card {
-  border-radius: 12px;
-  background: #f6ffed;
-
-  :deep(.ant-image) {
-    height: 300px !important;
-  }
-
-  :deep(.ant-card-meta-title) {
-    color: #52c41a;
-  }
-
-  .member-desc {
-    font-size: 13px;
-    padding: 0 8px;
+    color: @theme-teacher;
+    border: 1px solid rgba(250, 173, 20, 0.2);
   }
 
   &:hover {
-    transform: scale(1.02) translateY(-5px);
-    box-shadow: 0 8px 20px rgba(82, 196, 26, 0.15);
+    border-color: rgba(250, 173, 20, 0.3);
+    box-shadow: 0 20px 40px rgba(250, 173, 20, 0.15);
+  }
+}
+
+// 领导卡片特殊样式
+.leader-card {
+  background: linear-gradient(135deg, #f6ffed, #fff);
+  border: 2px solid rgba(82, 196, 26, 0.1);
+
+  .image-container .member-image {
+    height: 320px;
+  }
+
+  :deep(.ant-card-meta-title) {
+    color: @theme-leader;
+    font-size: 19px;
+  }
+
+  .position-tag {
+    background: #f6ffed;
+    color: @theme-leader;
+    border: 1px solid rgba(82, 196, 26, 0.2);
+  }
+
+  &:hover {
+    border-color: rgba(82, 196, 26, 0.3);
+    box-shadow: 0 20px 40px rgba(82, 196, 26, 0.15);
+  }
+}
+
+// 核心成员卡片特殊样式
+.core-card {
+  background: linear-gradient(135deg, #f0f7ff, #fff);
+  border: 2px solid rgba(24, 144, 255, 0.1);
+
+  .image-container .member-image {
+    height: 280px;
+  }
+
+  :deep(.ant-card-meta-title) {
+    color: @theme-core;
+  }
+
+  .position-tag {
+    background: #f0f7ff;
+    color: @theme-core;
+    border: 1px solid rgba(24, 144, 255, 0.2);
+  }
+
+  &:hover {
+    border-color: rgba(24, 144, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(24, 144, 255, 0.15);
+  }
+}
+
+// 性能优化
+* {
+  -webkit-overflow-scrolling: touch;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// 移动端优化
+@media (max-width: @xs-breakpoint) {
+  .member-container {
+    padding: 10px;
+  }
+
+  .member-card {
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .image-container .member-image {
+    height: 220px !important;
+  }
+}
+
+// 加载优化
+.member-card {
+  &.loading {
+    .image-container {
+      background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite linear;
+    }
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
   }
 }
 </style>

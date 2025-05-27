@@ -49,6 +49,7 @@ import ljtc from '@/assets/index/ljtc.jpeg'
 import fhxy from '@/assets/index/fhxy.png'
 import zrty from '@/assets/index/zrty.png'
 import xhym from '@/assets/index/xhym.png'
+import zntz from '@/assets/index/zntz.png'
 
 // 重点项目数据
 const projectList = ref([
@@ -150,24 +151,24 @@ const competitionProjects = ref([
     date: '2023-2025',
     progress: 65,
     awards: ['中国高校计算机大赛二等奖'],
-    team: ['吴教授', '孙博士', '周研究员']
+    team: ['任星宇', '孙博士', '周研究员']
   },
   {
     title: '星海韵梦',
     image: xhym,
-    description: '本项目为一站式编程服务一体式编程社区，为代码实训人员提供个一站式的便车服务。',
+    description: '本项目主要开发了一款为开发人员提供便捷的社区交流平台，旨在促进开发者之间的知识分享和技术交流。',
     detailUrl: '/project/xhym',
-    tags: ['社区', '一站便车失去', '123'],
-    status: 'active',
+    tags: ['社区', '编程', '123'],
+    status: 'completed',
     date: '2023-2025',
     progress: 60,
     awards: ['中国大学生计算机设计大赛省级二等奖'],
-    team: ['张洋', '宋洪乐', '李思远', '王晓宇', '刘晨曦']
+    team: ['宋洪乐', '孟皓雪',]
   },
   {
     title: '智能题站',
-    image: '@/assets/index/txyt-banner.png',
-    description: '计算机视觉驱动的天文图像分析系统，实现恒星识别与轨迹预测。',
+    image: zntz,
+    description: '本项目是一个基于深度学习的图像识别与分类系统，支持多模态数据处理与分析。',
     detailUrl: '/project/txyt',
     tags: ['计算机视觉', '天文', '图像处理'],
     status: 'completed',
@@ -299,7 +300,8 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
               <a-statistic title="项目总数" :value="statisticsData.total"
                 :value-style="{ color: '#1890ff', fontWeight: 'bold' }">
                 <template #prefix>
-                  <a-icon type="project" />
+                  <!-- <a-icon type="project" /> -->
+                  <ProjectOutlined />
                 </template>
               </a-statistic>
             </a-card>
@@ -309,7 +311,8 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
               <a-statistic title="进行中" :value="statisticsData.active"
                 :value-style="{ color: '#52c41a', fontWeight: 'bold' }">
                 <template #prefix>
-                  <a-icon type="play-circle" />
+                  <!-- <a-icon type="play-circle" /> -->
+                  <PlayCircleOutlined />
                 </template>
               </a-statistic>
             </a-card>
@@ -319,7 +322,8 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
               <a-statistic title="开发中" :value="statisticsData.developing"
                 :value-style="{ color: '#faad14', fontWeight: 'bold' }">
                 <template #prefix>
-                  <a-icon type="code" />
+                  <!-- <a-icon type="code" /> -->
+                  <CodeOutlined />
                 </template>
               </a-statistic>
             </a-card>
@@ -329,7 +333,8 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
               <a-statistic title="已完成" :value="statisticsData.completed"
                 :value-style="{ color: '#1d39c4', fontWeight: 'bold' }">
                 <template #prefix>
-                  <a-icon type="check-circle" />
+                  <!-- <a-icon type="check-circle" /> -->
+                  <CheckCircleOutlined />
                 </template>
               </a-statistic>
             </a-card>
@@ -1154,33 +1159,206 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
 
 /* 响应式优化 */
 @media (max-width: 768px) {
-  .project-content {
-    padding: 16px;
+  .project-view {
+    padding: 0 1rem;
+  }
+
+  .section {
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* 统计卡片移动端优化 */
+  .statistics-section {
+    padding: 1.5rem 1rem;
+    margin: 1rem 0 2rem;
+  }
+
+  .statistic-card {
+    padding: 1rem;
+  }
+
+  .statistics-cards .ant-statistic-title {
+    font-size: 1rem;
+  }
+
+  .statistics-cards .ant-statistic-content {
+    font-size: 1.8rem;
+  }
+
+  /* 推荐项目轮播移动端优化 */
+  .recommended-carousel {
+    height: auto;
+    max-height: 800px;
+  }
+
+  .carousel-item {
+    height: auto;
+    min-height: 700px;
+  }
+
+  .carousel-content {
+    flex-direction: column;
+    height: auto;
+    min-height: 700px;
+  }
+
+  .carousel-image-container {
+    height: 250px;
+    width: 100%;
+  }
+
+  .carousel-text {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .carousel-description {
+    margin: 1.5rem 0;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .carousel-button {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* 项目卡片移动端优化 */
+  .project-card {
+    margin-bottom: 1rem;
   }
 
   .project-image-container {
     height: 180px;
   }
 
+  .project-content {
+    padding: 1rem;
+  }
+
+  .ant-card-meta-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 4;
+  }
+
+  .project-meta {
+    gap: 8px;
+  }
+
+  .project-date {
+    font-size: 0.85rem;
+    padding: 4px 10px;
+  }
+
+  .project-tags .ant-tag {
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    margin: 0 4px 4px 0;
+  }
+
+  .project-button {
+    height: 36px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  /* 选项卡移动端优化 */
   .project-tabs .ant-tabs-tab {
-    padding: 8px 16px;
-    font-size: 1rem;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    margin: 0 8px 0 0;
+  }
+
+  .project-tabs .ant-tabs-nav {
+    margin-bottom: 1rem;
+  }
+
+  /* 团队成员头像组移动端优化 */
+  .ant-avatar-group {
+    margin-left: 0.5rem;
+  }
+
+  .ant-avatar {
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 0.8rem;
   }
 }
 
-@media (max-width: 576px) {
+/* 超小屏幕设备优化 */
+@media (max-width: 375px) {
+  .project-view {
+    padding: 0 0.8rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .carousel-title {
+    font-size: 1.6rem;
+  }
+
   .project-image-container {
     height: 160px;
   }
 
-  .project-meta {
-    margin-bottom: 12px;
+  .project-content {
+    padding: 0.8rem;
+  }
+
+  .ant-card-meta-title {
+    font-size: 1.1rem;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
   }
 
   .project-button {
-    margin-top: 16px;
-    height: 36px;
-    font-size: 0.9rem;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+}
+
+/* 横屏模式优化 */
+@media (max-height: 500px) and (orientation: landscape) {
+  .recommended-carousel {
+    max-height: 400px;
+  }
+
+  .carousel-content {
+    flex-direction: row;
+  }
+
+  .carousel-image-container {
+    height: 100%;
+    flex: 1;
+  }
+
+  .carousel-text {
+    flex: 1;
+    padding: 1rem;
   }
 }
 
@@ -1494,6 +1672,40 @@ import zhCN from 'ant-design-vue/es/locale/zh_CN'
     margin-top: 16px;
     height: 36px;
     font-size: 0.9rem;
+  }
+}
+
+/* 中等尺寸手机优化 */
+@media (max-width: 480px) {
+  .carousel-item {
+    min-height: 750px;
+  }
+
+  .carousel-content {
+    min-height: 750px;
+  }
+
+  .carousel-image-container {
+    height: 220px;
+  }
+}
+
+/* 小屏幕手机优化 */
+@media (max-width: 375px) {
+  .carousel-item {
+    min-height: 780px;
+  }
+
+  .carousel-content {
+    min-height: 780px;
+  }
+
+  .carousel-image-container {
+    height: 200px;
+  }
+
+  .carousel-text {
+    padding: 1.5rem;
   }
 }
 </style>

@@ -44,7 +44,7 @@ onMounted(() => {
       }
     })
   }, {
-    threshold: 0.2,
+    threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
   })
 
@@ -446,7 +446,7 @@ const handleProjectClick = (project) => {
     <!-- 实验室氛围 -->
     <div class="section facilities-section animate-on-scroll">
       <div class="container">
-        <h2 class="section-title">实验室氛围</h2>
+        <h2 class="section-title">实验室文化</h2>
         <p class="section-subtitle">团队活跃的氛围，让你感受到团队的魅力</p>
         <a-row :gutter="[24, 24]">
           <a-col :xs="24" :sm="12" :lg="6" v-for="facility in atmosphere" :key="facility.name">
@@ -743,7 +743,7 @@ const handleProjectClick = (project) => {
                 <h4>联系我们</h4>
                 <div class="contact-item">
                   <span class="contact-icon">📧</span>
-                  <span>admin@2119.online</span>
+                  <span>laboratory10454@163.com</span>
                 </div>
                 <div class="contact-item">
                   <span class="contact-icon">💬</span>

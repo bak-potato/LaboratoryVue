@@ -54,7 +54,7 @@ const orgStructure = ref([
   {
     title: '创新创业部',
     description: '负责创新项目孵化、创业指导、竞赛组织及资源对接，是团队创新思维的发源地。',
-    icon: 'bulb',
+    icon: 'BulbOutlined',
     color: '#ff7a45',
     memberCount: 1,
     url: '/introduction',
@@ -68,23 +68,23 @@ const orgStructure = ref([
   {
     title: '软件部',
     description: '负责软件开发、技术研究、项目实践及技术培训，是团队核心技术力量的体现。',
-    icon: 'code',
+    icon: 'CodeOutlined',
     color: '#1890ff',
     memberCount: 12,
     url: '/software',
     achievements: ['开发产品8款', '技术专利16项', '开源项目贡献300+'],
     children: [
-      { title: '前端组', role: 'Web界面开发与优化', icon: 'layout', memberCount: 6, url: '/software/web' },
-      { title: '后端组', role: '服务端架构设计与开发', icon: 'database', memberCount: 8, url: '/software/backend' },
-      { title: '运维组', role: '系统部署维护与安全保障', icon: 'cloud-server', memberCount: 4, url: '/software/ops' },
-      { title: '测试组', role: '质量保障与用户体验测试', icon: 'bug', memberCount: 3, url: '/software/test' },
-      { title: 'AI组', role: '人工智能技术研究与应用', icon: 'robot', memberCount: 4, url: '/software/ai' },
+      { title: '前端组', role: 'Web界面开发与优化', icon: 'LayoutOutlined', memberCount: 6, url: '/software/web' },
+      { title: '后端组', role: '服务端架构设计与开发', icon: 'DatabaseOutlined', memberCount: 8, url: '/software/backend' },
+      { title: '运维组', role: '系统部署维护与安全保障', icon: 'CloudServerOutlined', memberCount: 4, url: '/software/ops' },
+      { title: '测试组', role: '质量保障与用户体验测试', icon: 'BugOutlined', memberCount: 3, url: '/software/test' },
+      { title: 'AI组', role: '人工智能技术研究与应用', icon: 'RobotOutlined', memberCount: 4, url: '/software/ai' },
     ]
   },
   {
     title: '硬件部',
     description: '负责硬件设备设计、嵌入式系统开发、物联网项目实施及硬件创新研究。',
-    icon: 'tool',
+    icon: 'ToolOutlined',
     color: '#722ed1',
     memberCount: 2,
     url: '/hardware',
@@ -103,7 +103,7 @@ const orgStructure = ref([
   {
     title: '设计部',
     description: '负责产品视觉设计、用户体验设计、品牌形象设计及创意策划，注重美学与实用的结合。',
-    icon: 'highlight',
+    icon: 'HighlightOutlined',
     color: '#eb2f96',
     memberCount: 2,
     url: '/design',
@@ -122,7 +122,7 @@ const orgStructure = ref([
   {
     title: '文案部',
     description: '负责项目文案撰写、宣传推广、内容创作及社区运营，是团队对外传播的声音。',
-    icon: 'read',
+    icon: 'ReadOutlined',
     color: '#13c2c2',
     memberCount: 3,
     url: '/copywriting',
@@ -178,13 +178,15 @@ const orgStructure = ref([
           <a-card hoverable class="dept-card" :bordered="false">
             <template #cover>
               <div class="card-cover" :style="{ background: dept.color + '18' }">
-                <a-icon :type="dept.icon" :style="{ color: dept.color, fontSize: '42px' }" />
+                <!-- <a-icon :type="dept.icon" :style="{ color: dept.color, fontSize: '42px' }" /> -->
+                <component :is="dept.icon" :style="{ color: dept.color, fontSize: '42px' }" />
               </div>
             </template>
             <template #title>
               <div class="dept-title" @click="navigate(dept.url)">
                 {{ dept.title }}
-                <a-icon type="right" class="arrow-icon" />
+                <!-- <a-icon type="right" class="arrow-icon" /> -->
+                <RightOutlined class="arrow-icon" />
               </div>
             </template>
             <template #extra>
@@ -198,7 +200,8 @@ const orgStructure = ref([
               <div class="sub-groups" v-if="dept.children && dept.children.length">
                 <div v-for="(group, gIndex) in dept.children" :key="gIndex" class="group-item"
                   @click="navigate(group.url)">
-                  <a-icon :type="group.icon" class="group-icon" />
+                  <!-- <a-icon :type="group.icon" class="group-icon" /> -->
+                  <component :is="group.icon" class="group-icon" />
                   <div class="group-info">
                     <div class="group-title">{{ group.title }}</div>
                     <div class="group-role">{{ group.role }}</div>
@@ -210,7 +213,8 @@ const orgStructure = ref([
               <div class="dept-achievements" v-if="dept.achievements">
                 <a-tag v-for="(item, idx) in dept.achievements" :key="idx" :color="dept.color + '20'"
                   class="achievement-tag">
-                  <a-icon type="trophy" />
+                  <!-- <a-icon type="trophy" /> -->
+                  <TrophyOutlined />
                   <span>{{ item }}</span>
                 </a-tag>
               </div>
@@ -247,14 +251,16 @@ const orgStructure = ref([
           <div class="org-branches">
             <div v-for="(dept, index) in orgStructure" :key="index" class="org-branch">
               <div class="branch-node" :style="{ background: dept.color }">
-                <a-icon :type="dept.icon" class="branch-icon" />
+                <!-- <a-icon :type="dept.icon" class="branch-icon" /> -->
+                <component :is="dept.icon" class="branch-icon" />
                 <div class="branch-title">{{ dept.title }}</div>
               </div>
 
               <div class="branch-children" v-if="dept.children && dept.children.length">
                 <div v-for="(child, childIdx) in dept.children" :key="childIdx" class="child-node"
                   :style="{ background: dept.color + '15', borderColor: dept.color + '50' }">
-                  <a-icon :type="child.icon" :style="{ color: dept.color }" />
+                  <!-- <a-icon :type="child.icon" :style="{ color: dept.color }" /> -->
+                  <component :is="child.icon" :style="{ color: dept.color }" />
                   <span>{{ child.title }}</span>
                 </div>
               </div>
@@ -396,7 +402,7 @@ const orgStructure = ref([
       justify-content: space-between;
 
       .arrow-icon {
-        font-size: 12px;
+        font-size: 15px;
         opacity: 0;
         transform: translateX(-5px);
         transition: all 0.3s;
