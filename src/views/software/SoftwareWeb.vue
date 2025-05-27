@@ -471,7 +471,188 @@ const getStatusColor = (status) => {
 </script>
 
 <style scoped>
+@media (max-width: 576px) {
+  .content {
+    padding: 8px;
+  }
 
+  /* 欢迎卡片调整 */
+  .welcome-title h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .welcome-title .subtitle {
+    text-align: center;
+  }
+
+  .welcome-content {
+    padding: 0 12px 12px;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+    text-indent: 1rem;
+  }
+
+  /* 统计项调整 */
+  .stats-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .stat-item {
+    min-width: 30%;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  /* 操作按钮调整 */
+  .action-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .action-btn {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* 技术栈网格调整 */
+  .tech-stack-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 12px;
+  }
+
+  .tech-item-card {
+    width: 100%;
+    min-width: auto;
+  }
+
+  /* 部门简介卡片调整 */
+  .intro-card {
+    margin-top: 16px;
+  }
+
+  .tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* 时间线调整 */
+  .timeline-container {
+    padding-left: 30px;
+  }
+
+  .timeline-line {
+    left: 15px;
+  }
+
+  .timeline-dot {
+    left: -30px;
+  }
+
+  /* 团队成员卡片调整 */
+  .member-card {
+    margin-bottom: 12px;
+  }
+
+  .member-cover {
+    height: 150px;
+  }
+
+  /* 项目表格调整 */
+  .project-table {
+    overflow-x: auto;
+  }
+
+  .ant-table {
+    width: 100%;
+    min-width: 600px; /* 允许横向滚动 */
+  }
+
+  /* 页眉调整 */
+  .page-header {
+    padding: 12px 16px;
+    margin: -8px -8px 16px;
+  }
+
+  /* 文化标签调整 */
+  .culture-tags {
+    justify-content: center;
+  }
+
+  /* 技术卡片图标大小调整 */
+  .tech-icon {
+    font-size: 28px;
+  }
+
+  /* 卡片内边距调整 */
+  .ant-card-body {
+    padding: 16px;
+  }
+
+  /* 行间距调整 */
+  .info-row {
+    margin-top: 8px;
+  }
+
+  /* 小屏幕隐藏部分非必要内容 */
+  .tech-desc {
+    display: none;
+  }
+}
+
+/* 超小屏幕额外调整 */
+@media (max-width: 400px) {
+  .stat-item {
+    min-width: 45%;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-subitems {
+    padding-left: 8px;
+  }
+
+  .member-skills {
+    justify-content: center;
+  }
+
+  .skill-tag {
+    font-size: 0.7rem;
+  }
+}
+
+/* 触摸友好元素 */
+.action-btn,
+.tech-item-card,
+.member-card {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 按钮点击效果 */
+.action-btn:active {
+  transform: scale(0.98);
+}
+
+/* 卡片点击效果 */
+.tech-item-card:active,
+.member-card:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 防止手机端字体放大 */
+html {
+  -webkit-text-size-adjust: 100%;
+}
 /* 基础布局样式 */
 .lab-frontend-container {
   min-height: 100vh;

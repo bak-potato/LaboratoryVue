@@ -11,7 +11,10 @@
         :key="group.name"
         class="group-card"
       >
-        <h2>{{ group.name }}</h2>
+        <div class="group-header">
+          <i :class="group.icon" :style="{ color: group.color }"></i>
+          <h2>{{ group.name }}</h2>
+        </div>
         <p>{{ group.description }}</p>
         <ul>
           <li v-for="(item, index) in group.responsibilities" :key="index">
@@ -21,12 +24,13 @@
       </section>
     </main>
 
-
+    <footer class="footer">
+      <p>© 2025 实验室软件部 · 版权所有</p>
+    </footer>
   </div>
 </template>
 <!-- eslint-disable vue/block-lang -->
 <script setup>
-
 const groups = [
   {
     name: "后端组",
@@ -94,128 +98,130 @@ const groups = [
     color: "#9b59b6"
   }
 ]
-
 </script>
 
 <style scoped>
+/* 基础样式 */
 .software-department {
   font-family: 'Arial', sans-serif;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  padding: 16px;
   color: #333;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 40px;
-  padding: 20px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
-}
-
-.groups-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* 使所有卡片居中 */
-  gap: 30px;
-  margin-bottom: 40px;
-}
-
-.group-card {
-  background-color: white;
-  border-radius: 8px;
-  padding: 25px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  width: 300px; /* 固定宽度 */
-  box-sizing: border-box;
-}
-
-.group-card:hover {
-  transform: translateY(-5px);
-}
-.software-department {
-  font-family: 'Arial', sans-serif;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  color: #333;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 40px;
-  padding: 20px;
+  margin-bottom: 24px;
+  padding: 16px;
   background-color: #f5f5f5;
   border-radius: 8px;
 }
 
 .header h1 {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   color: #2c3e50;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .header p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #7f8c8d;
 }
 
+/* 卡片容器 - 响应式布局 */
 .groups-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-bottom: 40px;
-  justify-content: center;
+  grid-template-columns: 1fr; /* 移动端单列布局 */
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
+/* 组卡片样式 */
 .group-card {
   background-color: white;
   border-radius: 8px;
-  padding: 25px;
+  padding: 16px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  max-width: 300px;
-  margin: 0 auto;
 }
 
 .group-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
+}
+
+.group-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.group-header i {
+  font-size: 1.5rem;
+  margin-right: 10px;
 }
 
 .group-card h2 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #2c3e50;
-  margin-bottom: 15px;
-  text-align: center;
+  margin: 0;
 }
 
 .group-card p {
   color: #7f8c8d;
-  margin-bottom: 15px;
-  line-height: 1.6;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  font-size: 0.95rem;
 }
 
 .group-card ul {
   padding-left: 20px;
   color: #34495e;
+  font-size: 0.9rem;
 }
 
 .group-card li {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
-.placeholder {
-  height: 200px;
-  visibility: hidden;
-}
-
+/* 页脚样式 */
 .footer {
   text-align: center;
-  padding: 20px;
+  padding: 12px;
   background-color: #f5f5f5;
   border-radius: 8px;
   color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+/* 平板及以上设备样式 */
+@media (min-width: 768px) {
+  .software-department {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+
+  .groups-container {
+    grid-template-columns: repeat(2, 1fr); /* 平板双列布局 */
+    gap: 24px;
+  }
+
+  .header h1 {
+    font-size: 2.2rem;
+  }
+
+  .header p {
+    font-size: 1.1rem;
+  }
+
+  .group-card {
+    padding: 20px;
+  }
+}
+
+/* 桌面设备样式 */
+@media (min-width: 1024px) {
+  .groups-container {
+    grid-template-columns: repeat(3, 1fr); /* 桌面三列布局 */
+  }
 }
 </style>
